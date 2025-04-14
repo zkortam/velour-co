@@ -18,33 +18,33 @@
 * [Kelvin personal github page](https://github.com/ktetteh)
 > Overview: Hi, I’m Kelvin! I’m a 2nd-year Computer Science major from Chula Vista! I’m excited to hone my skills in this class to become a greater student!
 
-## Anna
-* [Anna personal github page](https://github.com/annadoannn)
-> Overview: Hi!! I’m a 4th year Math-CS major with a minor in Data Science. I’m from the Bay Area and transferred from Diablo Valley College 👩🏻‍🎓
+## Anu
+* [Anu personal github page](https://github.com/fnuanu1)
+> Overview: Hi, my name is Fnu Anu. I am a second-year Computer Science and Business-Economics double major at Thurgood Marshall. I am from Orange County and excited to learn more about being a better software engineer.
 
-## Anna
-* [Anna personal github page](https://github.com/annadoannn)
-> Overview: Hi!! I’m a 4th year Math-CS major with a minor in Data Science. I’m from the Bay Area and transferred from Diablo Valley College 👩🏻‍🎓
+## Niroop
+* [Niroop personal github page](https://github.com/niroopkris)
+> Overview: I’m a 2nd year CS major currently in Warren. I’m from Irvine!
 
-## Anna
-* [Anna personal github page](https://github.com/annadoannn)
-> Overview: Hi!! I’m a 4th year Math-CS major with a minor in Data Science. I’m from the Bay Area and transferred from Diablo Valley College 👩🏻‍🎓
+## Luis
+* [Luis personal github page](https://github.com/LuisZ2004)
+> Overview: I am a 3rd year, 1st year transfer, Computer Science major. I grew up in Los Angeles but moved to Fresno and transferred from Fresno City College.
 
-## Anna
-* [Anna personal github page](https://github.com/annadoannn)
-> Overview: Hi!! I’m a 4th year Math-CS major with a minor in Data Science. I’m from the Bay Area and transferred from Diablo Valley College 👩🏻‍🎓
+## Rain
+* [Rain personal github page](https://github.com/beepbeeepimajeep)
+> Overview: I am a 38 year old South African male. I am a former airline pilot and business owner. I am a Computer Science major graduating this year. 
 
-## Anna
-* [Anna personal github page](https://github.com/annadoannn)
-> Overview: Hi!! I’m a 4th year Math-CS major with a minor in Data Science. I’m from the Bay Area and transferred from Diablo Valley College 👩🏻‍🎓
+## Mehdi
+* [Mehdi personal github page](​https://github.com/MehdiAziz01)
+> Overview: I am in my final year at ucsd and I major in Mathematics and Computer Science. I am originally from the Bay Area. :D 👍
 
-## Anna
-* [Anna personal github page](https://github.com/annadoannn)
-> Overview: Hi!! I’m a 4th year Math-CS major with a minor in Data Science. I’m from the Bay Area and transferred from Diablo Valley College 👩🏻‍🎓
+## Zoey
+* [Zoey personal github page](https://github.com/zoevans)
+> Overview: Hello, my name is Zoey Evans! I’m currently a 2nd year Computer Engineering major in Marshall College, and I’m from Orange County. My main interest is in robotics, and I’m a part of a robotics club on campus called Yonder Dynamics :)
 
-## Anna
-* [Anna personal github page](https://github.com/annadoannn)
-> Overview: Hi!! I’m a 4th year Math-CS major with a minor in Data Science. I’m from the Bay Area and transferred from Diablo Valley College 👩🏻‍🎓
+## Thanh
+* [Thanh personal github page](https://github.com/thanh2x)
+> Overview: Hello my name is Thanh Pro, AKA Kevin, I am a 1st year transfer student CS major, I am excited to be here !!!
 
 
 
