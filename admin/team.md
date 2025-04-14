@@ -36,7 +36,7 @@
 > Overview: I am a 38 year old South African male. I am a former airline pilot and business owner. I am a Computer Science major graduating this year. 
 
 ## Mehdi
-* [Mehdi personal github page](​https://github.com/MehdiAziz01)
+* [Mehdi personal github page](https://github.com/MehdiAziz01))
 > Overview: I am in my final year at ucsd and I major in Mathematics and Computer Science. I am originally from the Bay Area. :D 👍
 
 ## Zoey
