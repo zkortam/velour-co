@@ -1,7 +1,8 @@
 # Team members Pages
 ## Anna
 * [Anna personal github page](https://github.com/annadoannn)
-> Overview: Hi!! I’m a 4th year Math-CS major with a minor in Data Science. I’m from the Bay Area and transferred from Diablo Valley College 👩🏻‍🎓
+> Overview: Hi!! I’m a 4th year Math-CS major with a minor in Data Science. I’m from the Bay Area and transferred from Diablo Valley College 👩🏻‍🎓 I love to explore new places and try new experiences. My main hobby at the moment is hiking!
+
 ## Sarah
 * [Sarah personal github page](https://github.com/SarahChun6)
 > Overview: Hi, I’m Sarah. I’m a third year CS major and a first year transfer from UCSC. I’m from the Bay Area and am excited to learn more here in San Diego!
