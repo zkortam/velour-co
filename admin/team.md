@@ -1,10 +1,12 @@
-# Team Logo
+# Team Name: THE GIGACHADHA
+
+## Team Logo
 <br/>
 
-## Team Colors: Black, White, Blue
+### Team Colors: Black, White, Blue
 <br/>
 
-## Team Mascot: Powell Chad
+### Team Mascot: Powell Chad
 <br/>
 
 
