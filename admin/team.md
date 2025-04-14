@@ -7,8 +7,8 @@
 * [Sarah personal github page](https://github.com/SarahChun6)
 > Overview: Hi, I’m Sarah. I’m a third year CS major and a first year transfer from UCSC. I’m from the Bay Area and am excited to learn more here in San Diego!
 
-## Felica
-* [Felica personal github page](https://github.com/fleazhang)
+## Felicia
+* [Felicia personal github page](https://github.com/fleazhang)
 > Overview: Hi there! I’m a third year computer science major in Muir. I’m originally from LA! I like sleep :D 
 
 ## Manan
