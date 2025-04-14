@@ -8,7 +8,9 @@
 
 ### Team Mascot: Powell Chad
 <br/>
+
 ![Mascot](TeamMascot.png)
+
 
 ### Team fonts: Roboto Mono, Playfair Display
 <br/>
