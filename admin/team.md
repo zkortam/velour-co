@@ -3,6 +3,8 @@
 ## Team Logo
 <br/>
 
+![Logo](TeamLogo.png)
+
 ### Team Colors: Black, White, Blue
 <br/>
 
