@@ -9,8 +9,10 @@
 ### Team Mascot: Powell Chad
 <br/>
 
+### Team fonts: Roboto Mono, Playfair Display
+<br/>
 
-# Team members
+# Team members Pages
 ## Anna
 * [Anna personal github page](https://github.com/annadoannn)
 > Overview: Hi!! I’m a 4th year Math-CS major with a minor in Data Science. I’m from the Bay Area and transferred from Diablo Valley College 👩🏻‍🎓
