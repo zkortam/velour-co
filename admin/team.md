@@ -1,22 +1,3 @@
-# Team Name: THE GIGACHADHA
-
-## Team Logo
-<br/>
-
-![Logo](TeamLogo.png)
-
-### Team Colors: Black, White, Blue
-<br/>
-
-### Team Mascot: Powell Chad
-<br/>
-
-![Mascot](TeamMascot.png)
-
-
-### Team fonts: Roboto Mono, Playfair Display
-<br/>
-
 # Team members Pages
 ## Anna
 * [Anna personal github page](https://github.com/annadoannn)
@@ -59,7 +40,7 @@
 
 ## Zoey
 * [Zoey personal github page](https://github.com/zoevans)
-> Overview: Hello, my name is Zoey Evans! I’m currently a 2nd year Computer Engineering major in Marshall College, and I’m from Orange County. My main interest is in robotics, and I’m a part of a robotics club on campus called Yonder Dynamics :)
+> Overview: Hello, my name is Zoey Evans! I’m currently a 2nd year Computer Engineering major in Marshall College, and I’m from Orange County. My main interest is in robotics, and I’m a part of a robotics club on campus called Yonder Dynamics
 
 ## Thanh
 * [Thanh personal github page](https://github.com/thanh2x)
