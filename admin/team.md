@@ -1,6 +1,12 @@
 # Team Logo
 <br/>
-Hadsa
+
+## Team Colors: Black, White, Blue
+<br/>
+
+## Team Mascot: Powell Chad
+<br/>
+
 
 # Team members
 ## Anna
