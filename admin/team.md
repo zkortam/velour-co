@@ -1,4 +1,4 @@
-# Team members Pages
+# Team Members Pages
 ## Anna
 * [Anna's personal github page](https://github.com/annadoannn)
 > Overview: Hi!! I’m a 4th year Math-CS major with a minor in Data Science. I’m from the Bay Area and transferred from Diablo Valley College 👩🏻‍🎓 I love to explore new places and try new experiences. My main hobby at the moment is hiking!
