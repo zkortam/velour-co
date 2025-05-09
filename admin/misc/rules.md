@@ -24,7 +24,7 @@ Scheduling has been an issue. As midterms and finals do take up a lot of time, p
 - If a team member notices that another team member is not communicating or participating, then they will talk to the leads and the leads will communicate with the team member
 - Have a group discussion to revise the group contract if needed
 ## Communication Protocols
--If something comes up and you cannot work on the group assignment or make it to group meetings, message a TA and/or a lead
+- If something comes up and you cannot work on the group assignment or make it to group meetings, message a TA and/or a lead
 - Meeting format 
   - one online, one in-person per week
   - Weekly Sprint meets at 4pm on Wednesday must be attended. These meetings are online.
