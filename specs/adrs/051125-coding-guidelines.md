@@ -1,8 +1,21 @@
 ## Code Style Guidelines
 
 ### Functions:
-*Prove definitions for each function (description of functionality)*
-
+1. *Prove definitions for each function (description of functionality)*
+2. *Use commenting style detected by <ins>**jsDocs**</ins>
+   - Example:
+     ```
+     /**
+     *
+     * Comment should start for each function or the comments you wish to be included in the official documentation
+     * with one slash and 2 stars in the following manner
+     *
+     */
+    - Use @param tag to define each parameter's type and its purpose within the respective function
+    - Use @returns tag to define the type and purpose of what the function is returning
+    - Use @typedef tag for object you defined
+    - Use @property tag for object's specific properties and their purpose
+      
 ### Variables:
 1. *Avoid abbreviations (undescriptive) variable names*
 2. *Initialize all function-based variables in the beginning of the codeblock respectively*
