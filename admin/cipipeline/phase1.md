@@ -14,5 +14,6 @@
 - Felicia researched [End-to-End testing](https://docs.google.com/document/d/1K5G9X4HYc8mXMNajMHfCcMMuPmtW0Buk06Oc_Wxf39Y/edit?tab=t.0) and can integrate into Github once workflow is up.
 - Zoey and Anna researched [Documentation generation via automation](https://docs.google.com/document/d/16DxRgmR27evrYpejO6OraAx11qEy7x7xjtEnA3CR2Tg/edit?tab=t.0).
 
-
+![alt text](https://github.com/cse110-sp25-group23/cse110-sp25-group23/blob/main/admin/cipipeline/phase1.png)
+![alt text](/phase1.png)
 [CI/CD diagram](https://github.com/cse110-sp25-group23/cse110-sp25-group23/blob/main/admin/cipipeline/phase1.png)
