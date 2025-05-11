@@ -15,5 +15,4 @@
 - Zoey and Anna researched [Documentation generation via automation](https://docs.google.com/document/d/16DxRgmR27evrYpejO6OraAx11qEy7x7xjtEnA3CR2Tg/edit?tab=t.0).
 
 ![alt text](https://github.com/cse110-sp25-group23/cse110-sp25-group23/blob/main/admin/cipipeline/phase1.png)
-![alt text](/phase1.png)
 [CI/CD diagram](https://github.com/cse110-sp25-group23/cse110-sp25-group23/blob/main/admin/cipipeline/phase1.png)
