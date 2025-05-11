@@ -1,7 +1,7 @@
 ## Code Style Guidelines
 
 ### Functions:
-***Prove definitions for each function (description of functionality)***
+*Prove definitions for each function (description of functionality)*
 
 ### Variables:
 1. *Avoid abbreviations (undescriptive) variable names*
