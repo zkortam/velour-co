@@ -4,8 +4,8 @@
 ***Prove definitions for each function (description of functionality)***
 
 ### Variables:
-***Avoid abbreviations (undescriptive) variable names***
-***Initialize all function-based variables in the beginning of the codeblock respectively***
+1. *Avoid abbreviations (undescriptive) variable names*
+2. *Initialize all function-based variables in the beginning of the codeblock respectively*
 
 ### Standard conventions:
 + ***kebab-casing → for Git file names***
