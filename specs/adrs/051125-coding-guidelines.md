@@ -15,6 +15,7 @@
     - Use @returns tag to define the type and purpose of what the function is returning
     - Use @typedef tag for object you defined
     - Use @property tag for object's specific properties and their purpose
+    - TUTORIAL: [Link Youtube Tutorial for jsDocs](https://youtu.be/oH_-6TyxVhI?feature=shared)
       
 ### Variables:
 1. *Avoid abbreviations (undescriptive) variable names*
