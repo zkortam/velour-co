@@ -22,24 +22,27 @@
 ## **Agenda** - *general goal*
 
 ## **Progress Updates:**
-1. Update 1
-2. Update 2
-3. Update 3
-
+1. Update 1 since last meeting
+2. Update 2 since last meeting
+3. Update 3 since last meeting
+*What worked/what did not worked well?*
    
 ## **Topics Discussed:**
-- Important Fact discussed
-+ Important Fact discussed
-* Important Fact discussed
+- Important detail discussed
++ Important detail discussed
+* Important detail discussed
 
+## **Review/Retrospect Meeting:**
+- Topic 1
++ Topic 2
+* Topic 3
 
 ## **Next Action Items:**
 1. Item 1
 2. Item 2
 3. Item 3
 
-
 ## **Tasks Assigned List:**
 - Task 1 (assigned to *name*)
 + Task 2 (assigned to *name*)
-* Task 3 (assigned to *name* )
+* Task 3 (assigned to *name*)
