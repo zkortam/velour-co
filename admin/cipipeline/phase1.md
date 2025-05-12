@@ -2,13 +2,15 @@
 
 ## Currently functional
 - Set up branch protection rules for reviewing pull requests before merging.
+  - might require Code Owner to be the reviewer later
 
 ## In Progress
 - Kelvin started working on functionality of the Recipe Website and is waiting on confirmation on where to push it to the Github repo.
 - Rain created Github Actions Workflow for testing code style/linting.
-  - need to check functionality and compatibility with Thanh's unit tests
+  - created Github Issue to merge (check functionality and compatibility) with Thanh's unit tests
+  - created Github Issue for example test cases that pass and fail the linting
 - Thanh set up Jest unit tests using Github Actions.
-  - need to check functionality and compatibility with Rain's linting tests
+  - created Github Issue to merge (check functionality and compatibility) with Rain's linting tests
 
 ## Planned 
 - Felicia researched [End-to-End testing](https://docs.google.com/document/d/1K5G9X4HYc8mXMNajMHfCcMMuPmtW0Buk06Oc_Wxf39Y/edit?tab=t.0) and can integrate into Github once workflow is up.
