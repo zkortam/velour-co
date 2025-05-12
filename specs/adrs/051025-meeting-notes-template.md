@@ -15,7 +15,7 @@
 - [ ] Luis
 - [ ] Thanh
 - [ ] Niroop
-- [ ] Mannan
+- [ ] Manan
 - [ ] Anna
 - [ ] Mehdi
 
