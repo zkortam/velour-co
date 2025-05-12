@@ -17,5 +17,5 @@ Chosen option: Using Github as the platform for our project repo and enforcing s
 - Require at least one human reviewer look over the code before merging pull requests to the main branch.
 - Have a backlog of project tasks as a list of Github Issues to assign to team members for the week during sprint planning meetings.
 - ADRs will be stored in `/specs/adrs` as individual markdown documents, using the format `MMDDYY-Decision-Name.md`. 
-- Branching strategy: by feature
+- Branching strategy: Each feature will have its own branch. Team members will create pull requests from their feature braches to a staging branch. At the end of each sprint, we will create a pull request from the staging branch to the main branch for deployment.
 - GitHub Issues should follow a simple template **(to be specified/defined later)**
