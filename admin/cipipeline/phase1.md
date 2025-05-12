@@ -3,6 +3,8 @@
 ## Currently functional
 - Set up branch protection rules for reviewing pull requests before merging.
   - might require Code Owner to be the reviewer later
+- Merged linting and unit testing workflow (Rain, Thanh and Anu) and it works!
+- Added some rules for HTML, CSS and JS testing purposes and will need to expand in future.
 
 ## In Progress
 - Kelvin started working on functionality of the Recipe Website and is waiting on confirmation on where to push it to the Github repo.
