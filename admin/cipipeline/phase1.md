@@ -17,6 +17,7 @@
 - Felicia researched [End-to-End testing](https://docs.google.com/document/d/1K5G9X4HYc8mXMNajMHfCcMMuPmtW0Buk06Oc_Wxf39Y/edit?tab=t.0) and can integrate into Github once workflow is up.
   - Anu is planning to implement Cypress tests for end-to-end testing once the website is more functional from a user's perspective of running through various pages and approved for npm by the TA.
 + Zoey, Anna and Manan researched [Documentation generation via automation](https://docs.google.com/document/d/16DxRgmR27evrYpejO6OraAx11qEy7x7xjtEnA3CR2Tg/edit?tab=t.0).
+  - Planning to use tools/scirpts to extract doc comments in code to generate documentaion files and integrate them into the CI/CD
 
 ![alt text](https://github.com/cse110-sp25-group23/cse110-sp25-group23/blob/main/admin/cipipeline/phase1.drawio.png)
 [CI/CD diagram](https://github.com/cse110-sp25-group23/cse110-sp25-group23/blob/main/admin/cipipeline/phase1.drawio.png)
