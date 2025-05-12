@@ -2,7 +2,7 @@
 # These are optional metadata elements. Feel free to remove any of them.
 status: accepted
 date: 2025-05-10
-decision-makers: Zoey, Felicia, Kelvin, Sarah, Anu, Rain, Luis, Thanh, Niroop
+decision-makers: Zoey, Felicia, Kelvin, Sarah, Anu, Rain, Manan, Luis, Thanh, Niroop
 ---
 
 # Use LocalStorage for storing recipe cards
