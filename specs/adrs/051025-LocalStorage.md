@@ -15,6 +15,7 @@ How do we store a user's recipe cards most efficiently given our project scope?
 
 * LocalStorage API
 * Remote Database (ex: MySQL)
+* IndexedDB
 
 ## Decision Outcome
 
