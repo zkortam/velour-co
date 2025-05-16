@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="recipeCard.js" defer></script>
+    <title>Recipe Card</title>
+</head>
+<body>
+    <h1>Create a Recipe Card!</h1>
+
+    <div>
+        <input id ="recipeName" placeholder="Recipe Name">
+        <input id ="authorName" placeholder="Author Name">
+        <input id ="image" placeholder="Image File">
+        <select id="tagsDropdown">
+            <option value="">Select a Tag</option>
+            <option value="Easy">Easy</option>
+            <option value="Advanced">Advanced</option>
+            <option value="Pro">Pro</option>
+        </select>
+        <input id ="customTag" placeholder="Custom Tag">
+        <textarea id ="ingredients" placeholder="Ingredients"></textarea>
+        <textarea id ="recipe" placeholder="Recipe"></textarea>
+        <button onclick="create_card()">Create Recipe Card</button>   
+    </div>
+
+    <div id="cardsContainer"></div>
+</body>
+</html>
