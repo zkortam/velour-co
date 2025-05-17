@@ -74,27 +74,26 @@ function initFormHandler() {
 
 			// Fill in the rest of the fields
 			recipeObject.name = formData.get("name");
-            recipeObject.author = formData.get("author");
-            recipeObject.ingredients = formData.get("ingredients");
-            recipeObject.steps = formData.get("steps");
-
-            // Combine tags from dropdown and custom input
-            const predefinedTag = formData.get("difficulty");
-            recipeObject.difficulty = predefinedTag;
-            const customTagInput = formData.get("tags");
-
-            const tags = [];
-            if (predefinedTag) tags.push(predefinedTag);
-            if (customTagInput) {
-                tags.push(...customTagInput
-                    .split(',')
-                    .map(t => t.trim())
-                    .filter(Boolean)
-                    .map(t => t.charAt(0).toUpperCase() + t.slice(1).toLowerCase()));
-            }
-            recipeObject.tags = tags;
-
-
+			recipeObject.author = formData.get("author");
+			recipeObject.ingredients = formData.get("ingredients");
+			recipeObject.steps = formData.get("steps");
+			
+			// Combine tags from dropdown and custom input
+			const predefinedTag = formData.get("difficulty");
+			recipeObject.difficulty = predefinedTag;
+			const customTagInput = formData.get("tags");
+			
+			const tags = [];
+			if (predefinedTag) tags.push(predefinedTag);
+			if (customTagInput) {
+			tags.push(...customTagInput
+			    .split(',')
+			    .map(t => t.trim())
+			    .filter(Boolean)
+			    .map(t => t.charAt(0).toUpperCase() + t.slice(1).toLowerCase()));
+			}
+			recipeObject.tags = tags;
+			
 			const recipeCard = document.createElement('recipe-card');
 			recipeCard.data = recipeObject;
 			container.appendChild(recipeCard);
