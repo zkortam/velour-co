@@ -14,7 +14,6 @@ set data(recipeData) {
       <img src="${recipeData.image}" alt="${recipeData.name}" style="width:100px;height:auto;">
       <p>Tags: </p>
       <ul>
-        <li>${recipeData.difficulty}</li>
         ${recipeData.tags.map(tag => `<li>${tag}</li>`).join('')}
       </ul>
       <p>Ingredients: ${recipeData.ingredients}</p>
