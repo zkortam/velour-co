@@ -35,8 +35,8 @@ The architectural question is **how should we implement the Add-to-Cart flow and
 **Chosen option: 1 – Inline “Buy ingredients” button → Local cart(LocalStorage).**  
 This is the smallest slice that delivers real value within our sprint scope and lets us iterate quickly.
 
-*Why not option 3 alone?* It sacrifices the offline usefulness/chance to tick off items.  
-*Why not option 2?* Losing persistence across sessions would annoy users.  
+***Why not option 3 alone?*** It sacrifices the offline usefulness/chance to tick off items.  
+***Why not option 2?*** Losing persistence across sessions would annoy users.  
 Option 4 is fine but might be troublsome/task-heavy being allowed to use affiliates and find for every ingredient
 ---
 
