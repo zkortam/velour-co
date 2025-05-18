@@ -59,24 +59,24 @@ Option 4 is fine but might be troublsome/task-heavy being allowed to use affilia
    type CartItem = { id: string; name: string; qty?: number; unit?: string };
    type Cart = CartItem[]; // stored as JSON
    // stored under localStorage['recipeCart'] 
-  -
-  2. **cart.js module**
+  
+ 2. **cart.js module**
   * addRecipe(recipe) – merges recipe.ingredients into cart (no duplicates).
   * remove(id) / clear() / list() helpers.
   * dispatch a cart:update CustomEvent whenever the cart changes.
-  -
-  3. RecipeCard UIAdd <button class="buy-ingredients">Buy ingredients</button> inside each card; clicking calls Cart.addRecipe(thisRecipe).
+  
+3. RecipeCard UI
+  * Add <button class="buy-ingredients">Buy ingredients</button> inside each card; clicking calls Cart.addRecipe(thisRecipe).
 
-  -
-  4.Shopping Page (shop.html)
+4. Shopping Page (shop.html)
   * Read Cart.list() and render as an unordered list with check‑boxes.
   * Check‑box toggling simply hides the item (does not change storage)—keeps logic simple.
   * "Clear cart" button empties storage.
-  -
-  5. Testing
+  
+5. Testing
   * Jest unit tests for cart.js
-  -
-  6. Accessibility & Mobile polish
+  
+6. Accessibility & Mobile polish
   * Ensure buttons have aria-label(for some use cases)
   * Use CSS overflow-y:auto so long lists scroll nicely on phone screens.
   ## References 
