@@ -54,7 +54,7 @@ We will integrate the **Spoonacular Extract Recipe API** (Option C).
   - Valid URL parsing  
   - Error and invalid-URL handling  
   - Saving to localStorage  
-  - Duplicate detection  
+  - Duplicate detection
 
 ## Trade-Offs & Future Considerations
 
