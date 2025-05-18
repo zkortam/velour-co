@@ -22,6 +22,18 @@
             <button data-view="month" class="active">Month</button>
         </nav>
 
+        <nav class="add-recipes">
+        <form id="assign-form">
+        <select id="recipe-select">
+            <option value="">-- pick a recipe --</option>
+            </select>
+            <input type="date" id="recipe-date" required>
+            <input type="time" id="recipe-time" step="3600" required>
+            <button type="submit">Schedule</button>
+        </form>
+        </nav>
+
+
         <div id="calendar">
             <div class="calendar-header">
                 <button id="prev-month">&lt; Previous</button>
