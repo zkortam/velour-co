@@ -47,7 +47,6 @@
 
 .calendar-grid div {
   border: 1px solid #ccc;
-  aspect-ratio: 1/1;
   padding: 5px;
   position: relative;
   box-sizing: border-box;
@@ -87,10 +86,29 @@
   background-color: #f0f0f0;
 }
 
+.calendar-grid.month-view div {
+  aspect-ratio: 1 / 1;
+}
+
+.calendar-grid.week-view div {
+  max-width: 100%;
+  height: 1000px;
+}
+
+.calendar-grid.day-view div {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  height: 1000px;
+  max-width: 100%;
+}
+
+/* only have day listed instead of days of the week */
 .calendar-days.day-view {
   display: none;
-  width: 75%;
+  height: auto;
 }
+
 
 /* media query for small screens */
 @media (max-width: 600px) {
