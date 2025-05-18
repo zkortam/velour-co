@@ -1,6 +1,7 @@
 // calendar.js
 // calculate dates
 const calendarGrid = document.getElementById('calendar-grid');
+const calendarDayLabel = document.getElementById('calendar-day-label');
 const monthYear = document.getElementById('month-year');
 const prevBtn = document.getElementById('prev-month');
 const nextBtn = document.getElementById('next-month');
@@ -12,6 +13,10 @@ function renderCalendar(date) {
   calendarGrid.innerHTML = '';
   calendarGrid.classList.remove('day-view', 'week-view', 'month-view');
   calendarGrid.classList.add(`${currentView}-view`);
+  
+  calendarDayLabel.textContent = '';
+  calendarDayLabel.classList.remove('day-view', 'week-view', 'month-view');
+  calendarDayLabel.classList.add(`${currentView}-view`);
 
   const calendarDays = document.querySelector('.calendar-days');
   calendarDays.classList.remove('day-view', 'week-view', 'month-view');
@@ -69,6 +74,8 @@ function renderCalendar(date) {
   } else if (currentView === 'day') {
     calendarGrid.style.gridTemplateColumns = '1fr'; // styling for day
     monthYear.textContent = `${monthNames[month]} ${date.getDate()}, ${year}`; // header
+    const weekdayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    calendarDayLabel.textContent = weekdayNames[date.getDay()];  // show day name
     const key = `${year}-${month + 1}-${date.getDate()}`;
     const recipe = localStorage.getItem(key) || '';
     calendarGrid.innerHTML = `<div class="day" data-date="${key}">
