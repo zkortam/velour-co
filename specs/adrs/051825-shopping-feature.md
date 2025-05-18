@@ -1,5 +1,5 @@
 ---
-status: pending
+status: accepted
 date: 2025-05-18
 decision-makers: [Manan Ahmad]
 ---
