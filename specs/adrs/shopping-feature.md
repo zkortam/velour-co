@@ -1,7 +1,9 @@
+---
+status: pending
+date: 2025-05-18
+decision-makers: [Manan Ahmad]
+---
 # Add to Cart Interaction 
-
-> **Status**: Proposed (2025-05-18)  
-> **Context**: Sprint X – Shopping MVP
 
 ---
 
