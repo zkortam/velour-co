@@ -1,0 +1,185 @@
+/* calendar.css */
+
+* {
+  font-family: Helvetica;
+  color: black;
+  font-size: 12pt;
+}
+
+#calendar {
+  width: 100%;
+  max-width: 100%;
+  padding: 1rem 8px;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendar-header h2 {
+  font-size: 36px;
+  font-style: bold;
+  font-family: 'Arial Narrow Bold';
+}
+
+.calendar-days{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.calendar-days.day-view {
+  display: none;
+}
+
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+}
+
+.calendar-grid div {
+  border: 1px solid #ccc;
+  padding: 5px;
+  position: relative;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+}
+
+.calendar-toggle {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+  gap: 10px;
+}
+
+.calendar-toggle button {
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid #888;
+  background: #f9f9f9;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.calendar-toggle button.active {
+  background-color: #d0e0ff;
+  border-color: #4a90e2;
+}
+
+
+.day {
+  background-color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.day:hover {
+  background-color: #f0f0f0;
+}
+
+.calendar-grid.month-view div {
+  aspect-ratio: 1 / 1;
+}
+/* 
+.calendar-grid.week-view div {
+  max-width: 100%;
+  height: 1000px;
+} */
+
+.calendar-grid.day-view div {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  /* height: 1000px;
+  max-width: 100%; */
+}
+
+.calendar-day-label {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: none; /* hidden by default */
+}
+
+.calendar-day-label.day-view {
+  display: block;
+  font-family: 'Arial Narrow Bold';
+  font-size: 28px;
+}
+
+
+
+/* media query for small screens */
+@media (max-width: 600px) {
+  .calendar-header h2 {
+    font-size: 1rem;
+  }
+  .calendar-grid div {
+    /* aspect-ratio: 1 / 1.2; */
+    aspect-ratio: auto;
+    font-size: 0.8rem;
+    height: 60px;
+  }
+}
+
+
+/* Styles for the hour seperator */
+:root {
+  --hour-height: 60px;
+}
+
+/* Base for day and week views */
+.calendar-grid.day-view,
+.calendar-grid.week-view {
+  display: grid;
+  grid-auto-rows: var(--hour-height);
+  height: calc(24 * var(--hour-height));
+}
+
+/* DAY view layout: 1 column + time labels */
+.calendar-grid.day-view {
+  grid-template-columns: 50px 1fr;
+}
+
+/* WEEK view layout: 1 label column + 7 days */
+.calendar-grid.week-view {
+  grid-template-columns: 50px repeat(7, 1fr);
+}
+
+/* Hour label */
+.time-label {
+  text-align: right;
+  padding: 2px 6px;
+  font-size: 0.9rem;
+  border-right: 1px solid #ccc;
+}
+
+/* Hour box */
+.time-slot {
+  position: relative;
+  border-top: 1px solid #eee;
+}
+
+/* 30-min dash */
+.time-slot::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0; right: 0;
+  border-top: 1px dashed #ccc;
+}
