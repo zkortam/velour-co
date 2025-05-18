@@ -45,6 +45,28 @@
   overflow-wrap: break-word;
 }
 
+.calendar-toggle {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+  gap: 10px;
+}
+
+.calendar-toggle button {
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid #888;
+  background: #f9f9f9;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.calendar-toggle button.active {
+  background-color: #d0e0ff;
+  border-color: #4a90e2;
+}
+
+
 .day {
   background-color: #fff;
   border-radius: 6px;
