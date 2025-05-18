@@ -32,22 +32,22 @@ The architectural question is **how should we implement the Add-to-Cart flow and
 
 ## Decision Outcome
 
-**Chosen option: 4 – Hybrid local cart + affiliate links.**  
-We’ll store the cart as JSON in `localStorage` (key: `recipeCart`) and render it on `/shop.html`. For each item we’ll display quantity + unit + ingredient and, when possible, attach a constructed link to a partner grocery search (Instacart first). This keeps the feature fully offline-capable while giving us a path to monetisation.
+**Chosen option: 1 – Inline “Buy ingredients” button → Local cart(LocalStorage).**  
+This is the smallest slice that delivers real value within our sprint scope and lets us iterate quickly.
 
 *Why not option 3 alone?* It sacrifices the offline usefulness/chance to tick off items.  
 *Why not option 2?* Losing persistence across sessions would annoy users.  
-Option 1 is fine but misses future revenue opportunities that option 4 adds almost “for free.”
-
+Option 4 is fine but might be troublsome/task-heavy being allowed to use affiliates and find for every ingredient
 ---
 
 ## Consequences
 
-* **Good** – Very low back-end complexity (no server DB), works offline, easy to prototype.  
-* **Good** – Affiliate links lay the groundwork for future revenue without locking us into a single provider.  
-* **Bad** – LocalStorage has a 5-10 MB quota; huge carts could overflow (unlikely for MVP).  
-* **Bad** – No cross-device sync; users on a new device will see an empty cart.  
-* **Trade-off** – Affiliate deep-links are brittle; DOM parsing of ingredient text must stay clean.
+* **Good** – Fastest time‑to‑feature; we can demo in the next sprint review.  
+* **Good** – Minimal testing surface (just JSON round‑trip and simple UI).  
+* **Good** – Supports offline grocery shopping (phone in airplane mode at the store).  
+* **Bad** - No cross-device sync; users on a new device will see an empty cart.
+* **Bad** - LocalStorage quota (5‑10 MB) could overflow in extreme cases (unlikely)
+* **Trade-off** –  Future monetisation (affiliate links) or multi‑user sharing will require additional work later.
 
 ---
 
@@ -56,10 +56,29 @@ Option 1 is fine but misses future revenue opportunities that option 4 adds almo
 1. **Data model**
 
    ```ts
-   type CartItem = { id: string; name: string; qty: number; unit?: string };
-   type Cart = CartItem[];
+   type CartItem = { id: string; name: string; qty?: number; unit?: string };
+   type Cart = CartItem[]; // stored as JSON
    // stored under localStorage['recipeCart'] 
   -
+  2. **cart.js module**
+  * addRecipe(recipe) – merges recipe.ingredients into cart (no duplicates).
+  * remove(id) / clear() / list() helpers.
+  * dispatch a cart:update CustomEvent whenever the cart changes.
+  -
+  3. RecipeCard UIAdd <button class="buy-ingredients">Buy ingredients</button> inside each card; clicking calls Cart.addRecipe(thisRecipe).
+
+  -
+  4.Shopping Page (shop.html)
+  * Read Cart.list() and render as an unordered list with check‑boxes.
+  * Check‑box toggling simply hides the item (does not change storage)—keeps logic simple.
+  * "Clear cart" button empties storage.
+  -
+  5. Testing
+  * Jest unit tests for cart.js
+  -
+  6. Accessibility & Mobile polish
+  * Ensure buttons have aria-label(for some use cases)
+  * Use CSS overflow-y:auto so long lists scroll nicely on phone screens.
   ## References 
   * [Instacart Checkout](https://docs.instacart.com/storefront/learn_about_your_storefront/cart_and_checkout/checkout/)
   * [Spoontacular Extract](https://spoonacular.com/food-api/docs#Extract-Recipe-From-Website)
