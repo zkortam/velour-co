@@ -6,6 +6,7 @@
   font-size: 12pt;
 }
 
+/* Container for the full calendar component */
 #calendar {
   width: 100%;
   max-width: 100%;
@@ -26,6 +27,7 @@
   font-family: 'Arial Narrow Bold';
 }
 
+/* Row displaying the days of the week (Sun, Mon, ...) */
 .calendar-days{
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -35,11 +37,12 @@
   box-sizing: border-box;
 }
 
+/* Hide day-of-week labels in 'day' view */
 .calendar-days.day-view {
   display: none;
 }
 
-
+/* Core grid where calendar content (day cells or hour slots) is rendered */
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -50,6 +53,7 @@
   transition: all 0.2s ease-in-out;
 }
 
+/* Default style for each cell in the calendar */
 .calendar-grid div {
   border: 1px solid #ccc;
   padding: 5px;
@@ -65,6 +69,7 @@
   gap: 10px;
 }
 
+/* Toggle view button appearance */
 .calendar-toggle button {
   padding: 6px 12px;
   border-radius: 4px;
@@ -74,12 +79,13 @@
   font-weight: bold;
 }
 
+/* Highlight the active toggle button */
 .calendar-toggle button.active {
   background-color: #d0e0ff;
   border-color: #4a90e2;
 }
 
-
+/* Day cells styling */
 .day {
   background-color: #fff;
   border-radius: 6px;
@@ -87,27 +93,36 @@
   transition: background 0.2s ease;
 }
 
+/* Hover effect for day cells */
 .day:hover {
   background-color: #f0f0f0;
 }
 
+/* Make each month view cell a square using aspect ratio */
 .calendar-grid.month-view div {
   aspect-ratio: 1 / 1;
 }
+
 /* 
 .calendar-grid.week-view div {
   max-width: 100%;
   height: 1000px;
 } */
 
+/* === DAY VIEW Customizations === */
+
+/* DAY view layout: 1 column + time labels */
+.calendar-grid.day-view {
+  grid-template-columns: 50px 1fr;
+}
+
+/* Day view cells (hour slots) */
 .calendar-grid.day-view div {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
-  /* height: 1000px;
-  max-width: 100%; */
 }
 
+/* Label above the day view showing "Monday", "Tuesday", etc. */
 .calendar-day-label {
   text-align: center;
   font-size: 1.5rem;
@@ -116,49 +131,33 @@
   display: none; /* hidden by default */
 }
 
+/* Show label only in day view */
 .calendar-day-label.day-view {
   display: block;
   font-family: 'Arial Narrow Bold';
   font-size: 28px;
 }
 
+/* === WEEK VIEW Customizations === */
 
-
-/* media query for small screens */
-@media (max-width: 600px) {
-  .calendar-header h2 {
-    font-size: 1rem;
-  }
-  .calendar-grid div {
-    /* aspect-ratio: 1 / 1.2; */
-    aspect-ratio: auto;
-    font-size: 0.8rem;
-    height: 60px;
-  }
+/* WEEK view layout: 1 label column + 7 days */
+.calendar-grid.week-view {
+  grid-template-columns: 50px repeat(7, 1fr);
 }
 
-
+/* === TIME STRUCTURE for day/week views === */
 /* Styles for the hour seperator */
 :root {
   --hour-height: 60px;
 }
 
 /* Base for day and week views */
+/* Shared vertical layout: 24 hour slots (24 rows) */
 .calendar-grid.day-view,
 .calendar-grid.week-view {
   display: grid;
   grid-auto-rows: var(--hour-height);
   height: calc(24 * var(--hour-height));
-}
-
-/* DAY view layout: 1 column + time labels */
-.calendar-grid.day-view {
-  grid-template-columns: 50px 1fr;
-}
-
-/* WEEK view layout: 1 label column + 7 days */
-.calendar-grid.week-view {
-  grid-template-columns: 50px repeat(7, 1fr);
 }
 
 /* Hour label */
@@ -182,4 +181,19 @@
   top: 50%;
   left: 0; right: 0;
   border-top: 1px dashed #ccc;
+}
+
+/* === RESPONSIVE DESIGN === */
+
+/* media query for small screens */
+@media (max-width: 600px) {
+  .calendar-header h2 {
+    font-size: 1rem;
+  }
+  .calendar-grid div {
+    /* aspect-ratio: 1 / 1.2; */
+    aspect-ratio: auto;
+    font-size: 0.8rem;
+    height: 60px;
+  }
 }
