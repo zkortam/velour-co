@@ -7,7 +7,7 @@ decision-makers: [Manan Ahmad]
 
 ---
 
-## Context & Problem Statement
+## Context & Goals
 
 Our recipe-card web app currently lets users **store** and **import** recipes, but it does not help them **act** on those recipes. We want to:
 
@@ -15,7 +15,7 @@ Our recipe-card web app currently lets users **store** and **import** recipes, b
 * display that list in a dedicated **Shopping** page so they can tick items off at the store or jump to an online checkout;
 * keep everything **client-side** (for now) to stay within our MVP scope and offline-friendly design.
 
-The architectural question is **how should we implement the Add-to-Cart flow and where should the data live?**
+The question is **how should we implement the Add-to-Cart flow and where should the data live?**
 
 ---
 
