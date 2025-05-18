@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recipe App</title>
+  <link rel="stylesheet" href="styles.css"></link>
+</head>
+<body>
+  <header class="header">
+    <div class="menu-icon">&#9776;</div>
+    <input type="text" placeholder="Find a recipe" class="search-bar" id="searchInput" />
+    <div class="profile-box">TA</div>
+  </header>
+
+  <section class="card-section" id="recipeSection">
+    <div class="card" id="recipeCard">
+      <h2 id="recipeTitle"></h2>
+      <p id="prepTime"></p>
+      <p id="cookTime"></p>
+      <p class="tags" id="recipeTags"></p>
+      <div style="position: relative;">
+        <img id="recipeImage" src="" alt="Recipe Image">
+        <div class="hover-mask" id="addToCollection">+</div>
+      </div>
+      <div class="arrow left" id="prevBtn">&#8592;</div>
+      <div class="arrow right" id="nextBtn">&#8594;</div>
+    </div>
+
+    <div class="collections" id="collectionList"></div>
+    <div class="collections" id="moreCollections" style="display:none;"></div>
+    <div id="showMoreBtn" style="text-align: center; margin: 10px;"></div>
+  </section>
+
+  <nav class="nav-bar">
+    <a class="nav-item selected" href="index.html">
+      <img src="https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-e700-622f-89e0-13de7f4b5e1b/raw?se=2025-05-18T21%3A15%3A21Z&sp=r&sv=2024-08-04&sr=b&scid=00000000-0000-0000-0000-000000000000&skoid=add8ee7d-5fc7-451e-b06e-a82b2276cf62&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-18T00%3A32%3A14Z&ske=2025-05-19T00%3A32%3A14Z&sks=b&skv=2024-08-04&sig=HHkALvCPod1ERMUYJf%2BmMEjEVd4Pp4WqAThEiroPiy4%3D" alt="Home" class="nav-icon">
+    </a>
+    <a class="nav-item" href="shop.html">
+      <img src="https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-9be0-622f-97c1-f7cf0bbf673a/raw?se=2025-05-18T22%3A08%3A18Z&sp=r&sv=2024-08-04&sr=b&scid=00000000-0000-0000-0000-000000000000&skoid=c156db82-7a33-468f-9cdd-06af263ceec8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-18T00%3A31%3A34Z&ske=2025-05-19T00%3A31%3A34Z&sks=b&skv=2024-08-04&sig=YQ/yNRHrUd4I6vspCyRvgaoyXraaGLVyljiEICuByWs%3D" alt="Shop" class="nav-icon">
+    </a>
+    <a class="nav-item" href="calendar.html">
+      <img src="https://sdmntprwestcentralus.oaiusercontent.com/files/00000000-ab60-61fb-871c-a049a4d22441/raw?se=2025-05-18T22%3A08%3A18Z&sp=r&sv=2024-08-04&sr=b&scid=00000000-0000-0000-0000-000000000000&skoid=c156db82-7a33-468f-9cdd-06af263ceec8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-18T00%3A44%3A43Z&ske=2025-05-19T00%3A44%3A43Z&sks=b&skv=2024-08-04&sig=rHxKeh%2BjnU9gnyX2oTURyjAV2BbzZycQwyAzvqobimw%3D" alt="Calendar" class="nav-icon">
+    </a>
+    <a class="nav-item" href="shelf.html">
+      <img src="https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-b30c-622f-8539-71bcaab709b5/raw?se=2025-05-18T22%3A08%3A18Z&sp=r&sv=2024-08-04&sr=b&scid=00000000-0000-0000-0000-000000000000&skoid=c156db82-7a33-468f-9cdd-06af263ceec8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-18T04%3A17%3A46Z&ske=2025-05-19T04%3A17%3A46Z&sks=b&skv=2024-08-04&sig=a6lOmBApLV0LRyZsrMrMNatkxlxpgSbX4GUIukrbBwM%3D" alt="Stats" class="nav-icon">
+    </a>
+  </nav>
+
+  <div id="popupContainer" style="display:none"></div>
+  <script src="script.js"></script>
+</body>
+</html>
+
