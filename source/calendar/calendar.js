@@ -44,8 +44,16 @@ function renderCalendar(date) {
     }
 
     for (let i = 1; i <= daysInMonth; i++) {
-      const dateKey = `${year}-${month + 1}-${i}`;
-      const recipe = localStorage.getItem(dateKey) || '';
+      const dateKey = `${year}-${String(month + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
+      let recipe = '';
+      // Check if any recipe in localStorage matches this date
+      for (let k in localStorage) {
+        if (/^\d{4}-\d{1,2}-\d{1,2} \d{2}:\d{2}$/.test(k) && k.startsWith(dateKey + ' ')) {
+          recipe = localStorage.getItem(k);
+          break;
+        }
+      }
+
       calendarGrid.innerHTML += `<div class="day" data-date="${dateKey}">
         ${i}${recipe ? `<div class="note">${recipe}</div>` : ''}
       </div>`;
@@ -73,7 +81,7 @@ function renderCalendar(date) {
         const day = new Date(start);
         day.setDate(start.getDate() + d);
 
-        const key = `${day.getFullYear()}-${day.getMonth() + 1}-${day.getDate()} ${String(h).padStart(2, '0')}:00`;
+        const key = `${day.getFullYear()}-${String(day.getMonth() + 1).padStart(2, '0')}-${String(day.getDate()).padStart(2, '0')} ${String(h).padStart(2, '0')}:00`;
 
         const slot = document.createElement('div');
         slot.className = 'time-slot';
@@ -93,7 +101,7 @@ function renderCalendar(date) {
     const weekdayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     calendarDayLabel.textContent = weekdayNames[date.getDay()];
 
-    const dayKey = `${year}-${month + 1}-${date.getDate()}`;
+    const dayKey = `${year}-${String(month + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
 
     for (let h = 0; h < 24; h++) {
       const label = document.createElement('div');
@@ -150,3 +158,43 @@ document.querySelectorAll('.calendar-toggle button').forEach(btn => {
   });
 });
 
+//add recipies by name to the dropdown in the form
+function populateRecipeDropdown() {
+  const dropdown = document.getElementById('recipe-select');
+  const recipes = JSON.parse(localStorage.getItem('recipes')) || [];
+
+  for (const recipe of recipes) {
+    const option = document.createElement('option');
+    option.value = recipe.name;
+    option.textContent = recipe.name;
+    dropdown.appendChild(option);
+  }
+}
+
+populateRecipeDropdown();
+
+
+const assignForm = document.getElementById('assign-form');
+
+assignForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  const recipeName = document.getElementById('recipe-select').value;
+  const date = document.getElementById('recipe-date').value;
+  const time = document.getElementById('recipe-time').value;
+
+  if (!recipeName || !date || !time) return;
+
+  // Construct localStorage key: "YYYY-M-D HH:MM"
+  const [y, m, d] = date.split("-");
+  const key = `${y}-${m}-${d} ${time}`;
+  
+  // Save recipe name to that date-time key
+  localStorage.setItem(key, recipeName);
+
+  // Refresh the calendar view to reflect changes
+  renderCalendar(currentDate);
+
+  // Optionally reset form
+  assignForm.reset();
+});
