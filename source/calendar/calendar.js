@@ -1,5 +1,7 @@
 // calendar.js
-// calculate dates
+// calculate dates and render basic calendar functions
+
+// DOM element references
 const calendarGrid = document.getElementById('calendar-grid');
 const calendarDayLabel = document.getElementById('calendar-day-label');
 const monthYear = document.getElementById('month-year');
@@ -9,7 +11,10 @@ const nextBtn = document.getElementById('next-month');
 let currentDate = new Date();
 let currentView = 'month';
 
+// renders calendar based on the current view
+// fills in cells using data from localStorage 
 function renderCalendar(date) {
+  // Reset calendar content and update view-specific class names
   calendarGrid.innerHTML = '';
   calendarGrid.classList.remove('day-view', 'week-view', 'month-view');
   calendarGrid.classList.add(`${currentView}-view`);
@@ -22,7 +27,6 @@ function renderCalendar(date) {
   calendarDays.classList.remove('day-view', 'week-view', 'month-view');
   calendarDays.classList.add(`${currentView}-view`);
 
-  
   const year = date.getFullYear();
   const month = date.getMonth();
 
@@ -34,15 +38,18 @@ function renderCalendar(date) {
   const firstDay = new Date(year, month, 1).getDay();
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   
-  // Fill in days
+  // MONTH VIEW:
+  // shows a grid of days, one cell per date, includes overflow from previous month
   if (currentView === 'month') {
     calendarGrid.style.gridTemplateColumns = 'repeat(7, 1fr)'; // styling for month
     monthYear.textContent = `${monthNames[month]} ${year}`; // header
     
+    // fill leading blanks
     for (let i = 0; i < firstDay; i++) {
       calendarGrid.innerHTML += `<div></div>`;
     }
 
+    // fill in actual day cells
     for (let i = 1; i <= daysInMonth; i++) {
       const dateKey = `${year}-${String(month + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
       let recipe = '';
@@ -59,6 +66,8 @@ function renderCalendar(date) {
       </div>`;
     }
 
+  // WEEK VIEW 
+  // displays 7 days across and 24 hrs vertically per day 
   } else if (currentView === 'week') {
     calendarGrid.innerHTML = '';
     calendarGrid.style.gridTemplateColumns = '50px repeat(7, 1fr)';
@@ -70,13 +79,15 @@ function renderCalendar(date) {
 
     monthYear.textContent = `Week of ${monthNames[start.getMonth()]} ${start.getDate()} – ${monthNames[end.getMonth()]} ${end.getDate()}, ${end.getFullYear()}`;
 
+    // render hr labels and slots for each day
     for (let h = 0; h < 24; h++) {
-      // Label column
+      // left-side hr label
       const label = document.createElement('div');
       label.className = 'time-label';
       label.textContent = `${h}:00`;
       calendarGrid.appendChild(label);
-
+       
+      // 7 columns, one for each day of the week
       for (let d = 0; d < 7; d++) {
         const day = new Date(start);
         day.setDate(start.getDate() + d);
@@ -93,6 +104,9 @@ function renderCalendar(date) {
         calendarGrid.appendChild(slot);
       }
     }
+  
+  // DAY VIEW
+  // displays 24 vertical time slots for a single day
   } else if (currentView === 'day') {
     calendarGrid.innerHTML = '';
     calendarGrid.style.gridTemplateColumns = '50px 1fr'; // 1 label + 1 slot
@@ -121,8 +135,11 @@ function renderCalendar(date) {
   }
 }
 
+// inital render on page load
 renderCalendar(currentDate);
 
+// navigation button handlers
+// adjusts currentDate based on view and re-render
 prevBtn.addEventListener('click', () => {
   if (currentView === 'month') {
     currentDate.setMonth(currentDate.getMonth() - 1);
@@ -145,7 +162,7 @@ nextBtn.addEventListener('click', () => {
   renderCalendar(currentDate);
 });
 
-
+// View Toggle Buttons to switch between day, week, and month 
 document.querySelectorAll('.calendar-toggle button').forEach(btn => {
   btn.addEventListener('click', () => {
     currentView = btn.dataset.view;
@@ -173,7 +190,7 @@ function populateRecipeDropdown() {
 
 populateRecipeDropdown();
 
-
+// form submit handler: saves the selected recipe to a specific date and time in localStorage
 const assignForm = document.getElementById('assign-form');
 
 assignForm.addEventListener('submit', (event) => {
