@@ -35,6 +35,11 @@
   box-sizing: border-box;
 }
 
+.calendar-days.day-view {
+  display: none;
+}
+
+
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -103,11 +108,20 @@
   max-width: 100%;
 }
 
-/* only have day listed instead of days of the week */
-.calendar-days.day-view {
-  display: none;
-  height: auto;
+.calendar-day-label {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: none; /* hidden by default */
 }
+
+.calendar-day-label.day-view {
+  display: block;
+  font-family: 'Arial Narrow Bold';
+  font-size: 28px;
+}
+
 
 
 /* media query for small screens */
