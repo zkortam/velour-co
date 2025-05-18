@@ -1,35 +1,53 @@
-// Creating the recipe card
+/**
+ * Custom element that displays and manages a recipe card
+ * Allows for rendering, editing and the deletion of a recipe
+ * stored locally.
+ */
 class RecipeCard extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
     }
-set data(recipeData) {
-    if(!recipeData) return;
-    this._data = recipeData;
-    // Create content inside the shadow DOM
-    this.shadowRoot.innerHTML = `
-      <h2>${recipeData.name}</h2>
-      <p>Author: ${recipeData.author}</p>
-      <img src="${recipeData.image}" alt="${recipeData.name}" style="width:100px;height:auto;">
-      <p>Tags: </p>
-      <ul>
-        ${recipeData.tags.map(tag => `<li>${tag}</li>`).join('')}
-      </ul>
-      <p>Ingredients: ${recipeData.ingredients}</p>
-      <p>Steps: ${recipeData.steps}</p>
-      <button class='delete-btn'>Delete</button>
-    `;
-    delete_card(this.shadowRoot,this);
-    update_card(this.shadowRoot, this, recipeData);
-  }   
+    /**
+     * Sets and renders the content for the recipe card
+     * @param {Object} recipeData - Data for recipe
+     */
+    set data(recipeData) {
+        if(!recipeData) return;
+        this._data = recipeData;
+        // Create content inside the shadow DOM
+        this.shadowRoot.innerHTML = `
+        <h2>${recipeData.name}</h2>
+        <p>Author: ${recipeData.author}</p>
+        <img src="${recipeData.image}" alt="${recipeData.name}" style="width:100px;height:auto;">
+        <p>Tags: </p>
+        <ul>
+            ${recipeData.tags.map(tag => `<li>${tag}</li>`).join('')}
+        </ul>
+        <p>Ingredients: ${recipeData.ingredients}</p>
+        <p>Steps: ${recipeData.steps}</p>
+        <button class='delete-btn'>Delete</button>
+        `;
+
+    // Initialize delete and update logic
+        delete_card(this.shadowRoot,this);
+        update_card(this.shadowRoot, this, recipeData);
+    }   
 }
 
+// Define the custom recipe card element
 customElements.define('recipe-card', RecipeCard);
 
 //removed createCard()
 // Moved it to storage and is now initFormHandler
 
+/**
+ * Allows for users to edit/update recipe card through an edit 
+ * and save button
+ * @param {*} shadowRoot  - Shadow DOM of recipe card
+ * @param {*} hostElement - recipe-card custom element
+ * @param {*} recipeData  - Original data object 
+ */
 function update_card(shadowRoot, hostElement, recipeData){
     const editButton = document.createElement('button');
     editButton.textContent = 'Edit';
@@ -102,6 +120,8 @@ function update_card(shadowRoot, hostElement, recipeData){
                 recipe: shadowRoot.querySelector('.edit-recipe').value
             };
 
+        //Updating logic --> compare new data with original to check for changes
+
             let hasChanges = false;
             const finalData = { ...originalData};
 
@@ -128,7 +148,11 @@ function update_card(shadowRoot, hostElement, recipeData){
     });
 }
 
-
+/**
+ * Allows users to delete a recipe card 
+ * @param {*} shadowRoot  - Shadow DOM of a recipe card
+ * @param {*} hostElement - recipe-card custom element
+ */
 function delete_card(shadowRoot, hostElement) {
     const deleteButton = shadowRoot.querySelector('.delete-btn');
     if(deleteButton) {
