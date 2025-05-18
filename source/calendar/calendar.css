@@ -94,18 +94,18 @@
 .calendar-grid.month-view div {
   aspect-ratio: 1 / 1;
 }
-
+/* 
 .calendar-grid.week-view div {
   max-width: 100%;
   height: 1000px;
-}
+} */
 
 .calendar-grid.day-view div {
   display: flex;
   justify-content: center;
   /* align-items: center; */
-  height: 1000px;
-  max-width: 100%;
+  /* height: 1000px;
+  max-width: 100%; */
 }
 
 .calendar-day-label {
@@ -138,5 +138,48 @@
 }
 
 
+/* Styles for the hour seperator */
+:root {
+  --hour-height: 60px;
+}
 
+/* Base for day and week views */
+.calendar-grid.day-view,
+.calendar-grid.week-view {
+  display: grid;
+  grid-auto-rows: var(--hour-height);
+  height: calc(24 * var(--hour-height));
+}
 
+/* DAY view layout: 1 column + time labels */
+.calendar-grid.day-view {
+  grid-template-columns: 50px 1fr;
+}
+
+/* WEEK view layout: 1 label column + 7 days */
+.calendar-grid.week-view {
+  grid-template-columns: 50px repeat(7, 1fr);
+}
+
+/* Hour label */
+.time-label {
+  text-align: right;
+  padding: 2px 6px;
+  font-size: 0.9rem;
+  border-right: 1px solid #ccc;
+}
+
+/* Hour box */
+.time-slot {
+  position: relative;
+  border-top: 1px solid #eee;
+}
+
+/* 30-min dash */
+.time-slot::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0; right: 0;
+  border-top: 1px dashed #ccc;
+}

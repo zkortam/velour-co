@@ -52,38 +52,66 @@ function renderCalendar(date) {
     }
 
   } else if (currentView === 'week') {
-    const start = new Date(date);
-    start.setDate(date.getDate() - date.getDay()); // start of the week
-    calendarGrid.style.gridTemplateColumns = 'repeat(7, 1fr)'; // styling for week
+    calendarGrid.innerHTML = '';
+    calendarGrid.style.gridTemplateColumns = '50px repeat(7, 1fr)';
 
-    // header 
+    const start = new Date(date);
+    start.setDate(date.getDate() - date.getDay()); // Sunday
     const end = new Date(start);
     end.setDate(start.getDate() + 6);
-    monthYear.textContent = `Week of ${monthNames[start.getMonth()]} ${start.getDate()} – ${monthNames[end.getMonth()]} ${end.getDate()}, ${end.getFullYear()}`;
-    
-    for (let i = 0; i < 7; i++) {
-      const day = new Date(start);
-      day.setDate(start.getDate() + i);
-      const key = `${day.getFullYear()}-${day.getMonth() + 1}-${day.getDate()}`;
-      const recipe = localStorage.getItem(key) || '';
-      calendarGrid.innerHTML += `<div class="day" data-date="${key}">
-        ${day.getDate()}${recipe ? `<div class="note">${recipe}</div>` : ''}
-      </div>`;
-    }
 
+    monthYear.textContent = `Week of ${monthNames[start.getMonth()]} ${start.getDate()} – ${monthNames[end.getMonth()]} ${end.getDate()}, ${end.getFullYear()}`;
+
+    for (let h = 0; h < 24; h++) {
+      // Label column
+      const label = document.createElement('div');
+      label.className = 'time-label';
+      label.textContent = `${h}:00`;
+      calendarGrid.appendChild(label);
+
+      for (let d = 0; d < 7; d++) {
+        const day = new Date(start);
+        day.setDate(start.getDate() + d);
+
+        const key = `${day.getFullYear()}-${day.getMonth() + 1}-${day.getDate()} ${String(h).padStart(2, '0')}:00`;
+
+        const slot = document.createElement('div');
+        slot.className = 'time-slot';
+        slot.dataset.datetime = key;
+
+        const recipe = localStorage.getItem(key);
+        if (recipe) slot.innerHTML = `<div class="note">${recipe}</div>`;
+
+        calendarGrid.appendChild(slot);
+      }
+    }
   } else if (currentView === 'day') {
-    calendarGrid.style.gridTemplateColumns = '1fr'; // styling for day
-    monthYear.textContent = `${monthNames[month]} ${date.getDate()}, ${year}`; // header
+    calendarGrid.innerHTML = '';
+    calendarGrid.style.gridTemplateColumns = '50px 1fr'; // 1 label + 1 slot
+
+    monthYear.textContent = `${monthNames[month]} ${date.getDate()}, ${year}`;
     const weekdayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    calendarDayLabel.textContent = weekdayNames[date.getDay()];  // show day name
-    const key = `${year}-${month + 1}-${date.getDate()}`;
-    const recipe = localStorage.getItem(key) || '';
-    calendarGrid.innerHTML = `<div class="day" data-date="${key}">
-      ${date.getDate()}${recipe ? `<div class="note">${recipe}</div>` : ''}
-    </div>`;
+    calendarDayLabel.textContent = weekdayNames[date.getDay()];
+
+    const dayKey = `${year}-${month + 1}-${date.getDate()}`;
+
+    for (let h = 0; h < 24; h++) {
+      const label = document.createElement('div');
+      label.className = 'time-label';
+      label.textContent = `${h}:00`;
+      calendarGrid.appendChild(label);
+
+      const slot = document.createElement('div');
+      slot.className = 'time-slot';
+      slot.dataset.datetime = `${dayKey} ${String(h).padStart(2, '0')}:00`;
+
+      const recipe = localStorage.getItem(slot.dataset.datetime);
+      if (recipe) slot.innerHTML = `<div class="note">${recipe}</div>`;
+
+      calendarGrid.appendChild(slot);
+    }
   }
 }
-
 
 renderCalendar(currentDate);
 
