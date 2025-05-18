@@ -9,7 +9,7 @@ decision-makers: [Manan Ahmad]
 
 ## Context & Goals
 
-Our recipe-card web app currently lets users **store** and **import** recipes, but it does not help them **act** on those recipes. We want to:
+We want to:
 
 * let users add all the ingredients of a recipe to a *shopping list / cart* in one click;
 * display that list in a dedicated **Shopping** page so they can tick items off at the store or jump to an online checkout;
