@@ -26,7 +26,15 @@
   font-family: 'Arial Narrow Bold';
 }
 
-.calendar-days,
+.calendar-days{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -34,6 +42,7 @@
   text-align: center;
   width: 100%;
   box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
 }
 
 .calendar-grid div {
@@ -78,13 +87,24 @@
   background-color: #f0f0f0;
 }
 
+.calendar-days.day-view {
+  display: none;
+  width: 75%;
+}
+
 /* media query for small screens */
 @media (max-width: 600px) {
   .calendar-header h2 {
     font-size: 1rem;
   }
   .calendar-grid div {
-    aspect-ratio: 1 / 1.2;
+    /* aspect-ratio: 1 / 1.2; */
+    aspect-ratio: auto;
     font-size: 0.8rem;
+    height: 60px;
   }
 }
+
+
+
+
