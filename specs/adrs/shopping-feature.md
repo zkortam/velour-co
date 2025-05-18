@@ -51,7 +51,7 @@ Option 1 is fine but misses future revenue opportunities that option 4 adds almo
 
 ---
 
-## Implementation Plan (high-level)
+## Implementation Plan 
 
 1. **Data model**
 
