@@ -6,3 +6,5 @@ Notes from Weekly Meetings
 - [CI/CD Pipeline and ADR planning (5/8/25)](Notes/May8-2025-Meeting.md)
 - [Sprint Meeting 1 (5/14/25)](Notes/5-14-25.md)
 - [Sprint Review Meeting 1 (5/18/25)](Notes/5-18-2025-review.md)
+- [Sprint Retrospective Meeting 1 (5/18/25)](Notes/5-18-2025-Retrospective.md)
+- [Sprint Meeting 2 (5/21/25)](Notes/5-21-2025.md)
