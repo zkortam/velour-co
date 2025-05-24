@@ -8,6 +8,15 @@ function init() {
 	
 	//adds search
 	initSearch();
+
+	//Declare buttons for image input type
+	const fileRadio = document.getElementById('imageSourceFile');
+	const urlRadio = document.getElementById('imageSourceURL');
+
+	//change which is displayed when button changes
+	fileRadio.addEventListener('change', toggleInputs);
+	urlRadio.addEventListener('change', toggleInputs);
+	toggleInputs();
 }
 
 /**
@@ -59,59 +68,93 @@ function initFormHandler() {
 	const form = document.querySelector('form');
 	const container = document.querySelector('main');    //card container
 
-	// adds recipe card when form is submitted
 	form.addEventListener('submit', (event) => {
-		event.preventDefault(); // prevent page reload
+		//prevent page from reloading
+		event.preventDefault();
+
 		const formData = new FormData(form);
-		const imgFile = formData.get("image");
+		
+		//Get inputs from Recipce Card form
+		const name = formData.get("name");
+		const author = formData.get("author");
+		const ingredients = formData.get("ingredients");
+		const steps = formData.get("steps");
+		
+		//Tags are a combination of the predefined options and Custom tags, add them to one string
+		const predefinedTag = formData.get("difficulty");
+		const customTag = formData.get("tags");
 
-		const reader = new FileReader();
-		reader.onloadend = () => {
-			let recipeObject = {
-				//base64 string for image so it doesnt disappear on reload
-				image: reader.result 
-			};
+		const tags = [];
+		if (predefinedTag) tags.push(predefinedTag);
+		if (customTag) {
+		tags.push(...customTag
+			.split(',')
+			.map(t => t.trim())
+			.filter(Boolean)
+			.map(t => t.charAt(0).toUpperCase() + t.slice(1).toLowerCase()));
+		}
 
-			// Fill in the rest of the fields
-			recipeObject.name = formData.get("name");
-			recipeObject.author = formData.get("author");
-			recipeObject.ingredients = formData.get("ingredients");
-			recipeObject.steps = formData.get("steps");
+		//Check if the user will be using image URL
+		const urlInput = document.getElementById('imageSourceURL').checked ;
+
+		//Recipe is an Object with these atributes
+		const recipe = {
+			name,
+			author,
+			ingredients,
+			steps,
+			tags
+		}
+
+		//If User is Using URL, get image url 
+		if(urlInput){
+			const url = document.getElementById("imageURL").value.trim();
 			
-			// Combine tags from dropdown and custom input
-			const predefinedTag = formData.get("difficulty");
-			recipeObject.difficulty = predefinedTag;
-			const customTagInput = formData.get("tags");
-			
-			const tags = [];
-			if (predefinedTag) tags.push(predefinedTag);
-			if (customTagInput) {
-			tags.push(...customTagInput
-			    .split(',')
-			    .map(t => t.trim())
-			    .filter(Boolean)
-			    .map(t => t.charAt(0).toUpperCase() + t.slice(1).toLowerCase()));
+			//do not let them create without an image url
+			if (!url) {
+				alert("Please enter a valid image URL.");
+				return;
 			}
-			recipeObject.tags = tags;
-			
+			recipe.image = url;
+			finalizeRecipe(recipe); 
+		} else{
+			//get image and do not let user create card without image
+			const imgFile = document.getElementById("imageFile").files[0];
+			if (!imgFile) {
+				alert("Please select an image file.");
+				return;
+			}
+			const reader = new FileReader();
+			reader.onloadend = () => {
+				recipe.image = reader.result;
+				finalizeRecipe(recipe);
+			};
+			reader.readAsDataURL(imgFile);
+		}
+		function finalizeRecipe(recipe) {
+			//Create Recipe
 			const recipeCard = document.createElement('recipe-card');
-			recipeCard.data = recipeObject;
+			recipeCard.data = recipe;
 			container.appendChild(recipeCard);
 
-			let localRecipes = getRecipesFromStorage();
-			localRecipes.push(recipeObject);
+			//Add Recipe to Storage
+			const localRecipes = getRecipesFromStorage();
+			localRecipes.push(recipe);
 			saveRecipesToStorage(localRecipes);
 
+			//Clear Inputs
 			form.reset();
-		};
-		reader.readAsDataURL(imgFile);
+			//Reset image input and radio buttons
+			document.getElementById('imageSourceFile').checked = true;
+			toggleInputs();
+		}
 	}); 
 }
 
 //search function
 function initSearch(){
 	//get input from search-bar
-	const searchInput = document.querySelector('search-bar input[type="search"]');
+	const searchInput = document.querySelector('search input[type="search"]');
 
 	//If there is no input return
 	if(!searchInput){
@@ -149,3 +192,22 @@ function initSearch(){
 		});
 	});
 }
+
+//Change input type based on button
+function toggleInputs() {
+	const fileInputLabel = document.getElementById('fileInputLabel');
+	const urlInputLabel = document.getElementById('urlInputLabel');
+	const fileRadio = document.getElementById('imageSourceFile');
+	const urlRadio = document.getElementById('imageSourceURL');
+
+	//if using file, display file input, else display search bar
+	if (fileRadio.checked) {
+		fileInputLabel.style.display = 'block';
+		urlInputLabel.style.display = 'none';
+	} else {
+		fileInputLabel.style.display = 'none';
+		urlInputLabel.style.display = 'block';
+	}
+}
+
+
