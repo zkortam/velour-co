@@ -77,27 +77,25 @@ function initFormHandler() {
 
 	// Add ingredient to list and update array
 	addIngredientBtn.addEventListener('click', () => {
-		const ingredient = ingredientInput.value.trim();
-		if (ingredient) {
-			ingredientsArray.push(ingredient);
+		const name = ingredientInput.value.trim();
+		const unit = document.getElementById('ingredientUnitInput').value.trim();
+		
+		if (name) {
+			const ingredientObj = { name, unit };  // store as object
+			ingredientsArray.push(ingredientObj);
 
-			// Update the DOM
+			// DOM update
 			const li = document.createElement('li');
-
-			// Ingredient text span
 			const span = document.createElement('span');
-			span.textContent = ingredient;
+			span.textContent = `${name}${unit ? ' - ' + unit : ''}`;
 
-			// Delete button
 			const deleteBtn = document.createElement('button');
 			deleteBtn.textContent = 'remove';
 			deleteBtn.style.marginLeft = '10px';
 			deleteBtn.style.cursor = 'pointer';
-			deleteBtn.setAttribute('aria-label', `Remove ${ingredient}`);
 
-			// Remove item on click
 			deleteBtn.addEventListener('click', () => {
-				const index = ingredientsArray.indexOf(ingredient);
+				const index = ingredientsArray.findIndex(i => i.name === name && i.unit === unit);
 				if (index !== -1) {
 					ingredientsArray.splice(index, 1);
 				}
@@ -108,11 +106,12 @@ function initFormHandler() {
 			li.appendChild(deleteBtn);
 			ingredientsList.appendChild(li);
 
-			//Clear input
 			ingredientInput.value = '';
+			document.getElementById('ingredientUnitInput').value = '';
 			ingredientInput.focus();
 		}
 	});
+
 
 	const stepsArray = [];
 	const stepInput = document.getElementById('stepInput');
