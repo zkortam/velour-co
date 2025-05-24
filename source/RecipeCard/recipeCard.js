@@ -3,6 +3,8 @@
  * Allows for rendering, editing and the deletion of a recipe
  * stored locally.
  */
+import { getRecipesFromStorage, saveRecipesToStorage } from '../LocalStorage/storage.js';
+
 class RecipeCard extends HTMLElement {
     constructor() {
         super();
