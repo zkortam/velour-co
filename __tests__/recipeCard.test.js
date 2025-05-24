@@ -1,8 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
-
 //Import js files for recipe card and local storage
 import '../source/RecipeCard/recipeCard.js';
 import { addRecipesToDocument, saveRecipesToStorage } from '../source/LocalStorage/storage.js'; 
@@ -37,7 +32,7 @@ describe('Recipe Card Creator and Deletion', () => {
     const sr = card.shadowRoot;
     expect(sr.querySelector('h2').textContent).toBe('waffles');
     expect(sr.querySelector('p').textContent).toContain('Luis');
-    expect(sr.querySelector('img').getAttribute('src')).toBe('/waffles.jpg');
+    expect(sr.querySelector('img').getAttribute('src')).toBe('/waffles.png');
     const tags = Array.from(sr.querySelectorAll('li')).map(el => el.textContent);
     expect(tags).toEqual(['Easy','Breakfast']);
     expect(sr.textContent).toContain('Flour, Eggs, Milk');
@@ -88,7 +83,7 @@ describe('Recipe Card Creator and Deletion', () => {
 describe('Editing Card', () => {
     //Same Test Recipe
     const testRecipe = {
-    name: 'Waffles',
+    name: 'waffles',
     author: 'Luis',
     image: '/waffles.png',
     tags: ['Easy','Breakfast'],
