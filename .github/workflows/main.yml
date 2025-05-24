@@ -19,6 +19,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Run unit tests
+        run: npm test
       
       - name: Auto-fix minor ESLint issues
         run: npm run lint -- --fix
