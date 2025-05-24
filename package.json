@@ -6,7 +6,8 @@
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "lint": "eslint .",
     "stylelint": "stylelint ./__tests__/*.css ./source/*.css",
-    "htmlhint": "htmlhint ."
+    "htmlhint": "htmlhint ." ,
+    "jsdoc": "jsdoc -c jsdoc.json"
   },
   "devDependencies": {
     "eslint": "^8.57.1",
