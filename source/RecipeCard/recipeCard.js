@@ -3,6 +3,8 @@
  * Allows for rendering, editing and the deletion of a recipe
  * stored locally.
  */
+import { getRecipesFromStorage, saveRecipesToStorage } from '../LocalStorage/storage.js';
+
 class RecipeCard extends HTMLElement {
     constructor() {
         super();
@@ -27,6 +29,7 @@ class RecipeCard extends HTMLElement {
         <p>Ingredients: ${recipeData.ingredients}</p>
         <p>Steps: ${recipeData.steps}</p>
         <button class='delete-btn'>Delete</button>
+        <p>Time Estimate: ${recipeData.timeEstimate}</p>
         `;
 
     // Initialize delete and update logic
@@ -81,6 +84,7 @@ function update_card(shadowRoot, hostElement, recipeData){
         <label>Name: <input type="text" value="${originalData.name}" class="edit-name"></label><br>
         <label>Author: <input type= "text" value="${originalData.author}" class="edit-author"></label><br>
         <label>Image: <input type="text" value="${originalData.image}" class="edit-image"></label><br>
+        <label>Time Estimate: <input type="text" value="${originalData.timeEstimate || ''}" class="edit-time"></label><br>
         <fieldset>
             <legend>Tags:</legend>
             ${editPredefinedTags}
@@ -115,6 +119,7 @@ function update_card(shadowRoot, hostElement, recipeData){
                 name: shadowRoot.querySelector('.edit-name').value,
                 author: shadowRoot.querySelector('.edit-author').value,
                 image: shadowRoot.querySelector('.edit-image').value,
+                timeEstimate: shadowRoot.querySelector('.edit-time').value,
                 tags: allEditedTags,
                 ingredients: shadowRoot.querySelector('.edit-ingredients').value,
                 recipe: shadowRoot.querySelector('.edit-recipe').value

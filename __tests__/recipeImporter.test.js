@@ -1,5 +1,5 @@
 import { jest } from '@jest/globals';
-import { importRecipeFromUrl, saveImportedRecipe } from '../source/recipeImporter.js';
+import { importRecipeFromUrl, saveImportedRecipe } from '../source/recipeImporter/recipeImporter.js';
 
 // Mock fetch and localStorage
 global.fetch = jest.fn();
