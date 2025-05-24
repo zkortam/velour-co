@@ -59,13 +59,18 @@
             <input name="tags" id="customTag" placeholder="Custom Tag">
         </label>
         
-        <!-- Input for ingredients -->
-        <label for="ingredients">
-            Ingredients: 
-            <textarea name="ingredients" id="ingredients" placeholder="Ingredients" cols="38" rows="2" required></textarea>    
+        <!-- Ingredients Input -->
+        <label for="ingredientInput">
+            Ingredients:
+            <!-- Input box turns each ingredient to a  -->
+            <input type="text" id="ingredientInput" placeholder="Enter an ingredient">
+            <button type="button" id="addIngredientBtn">Add</button>
         </label>
         
-        <!-- Input for Steps of recipe -->
+        <ul id="ingredientsList"></ul>
+
+        
+        <!-- Steps Input -->
         <label for="steps">
             Steps:
             <textarea name="steps" id="steps" placeholder="Recipe Steps" cols="38" rows="5" required></textarea>

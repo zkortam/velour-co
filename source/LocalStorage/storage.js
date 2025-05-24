@@ -67,6 +67,53 @@ function saveRecipesToStorage(recipes) {
 function initFormHandler() {
 	const form = document.querySelector('form');
 	const container = document.querySelector('main');    //card container
+	
+	// Store ingredients in an array
+	const ingredientsArray = [];
+
+	const ingredientInput = document.getElementById('ingredientInput');
+	const addIngredientBtn = document.getElementById('addIngredientBtn');
+	const ingredientsList = document.getElementById('ingredientsList');
+
+	// Add ingredient to list and update array
+	addIngredientBtn.addEventListener('click', () => {
+		const ingredient = ingredientInput.value.trim();
+		if (ingredient) {
+			ingredientsArray.push(ingredient);
+
+			// Update the DOM
+			const li = document.createElement('li');
+
+			// Ingredient text span
+			const span = document.createElement('span');
+			span.textContent = ingredient;
+
+			// Delete button
+			const deleteBtn = document.createElement('button');
+			deleteBtn.textContent = 'delete';
+			deleteBtn.style.marginLeft = '10px';
+			deleteBtn.style.cursor = 'pointer';
+			deleteBtn.setAttribute('aria-label', `Remove ${ingredient}`);
+
+			// Remove item on click
+			deleteBtn.addEventListener('click', () => {
+				const index = ingredientsArray.indexOf(ingredient);
+				if (index !== -1) {
+					ingredientsArray.splice(index, 1);
+				}
+				li.remove();
+			});
+
+			li.appendChild(span);
+			li.appendChild(deleteBtn);
+			ingredientsList.appendChild(li);
+
+			//Clear input
+			ingredientInput.value = '';
+			ingredientInput.focus();
+		}
+	});
+
 
 	form.addEventListener('submit', (event) => {
 		//prevent page from reloading
@@ -77,9 +124,9 @@ function initFormHandler() {
 		//Get inputs from Recipce Card form
 		const name = formData.get("name");
 		const author = formData.get("author");
-		const ingredients = formData.get("ingredients");
 		const steps = formData.get("steps");
-		
+		const ingredients = [...ingredientsArray];
+
 		//Tags are a combination of the predefined options and Custom tags, add them to one string
 		const predefinedTag = formData.get("difficulty");
 		const customTag = formData.get("tags");
@@ -147,6 +194,10 @@ function initFormHandler() {
 			//Reset image input and radio buttons
 			document.getElementById('imageSourceFile').checked = true;
 			toggleInputs();
+
+			//reset ingredients list
+			ingredientsArray.length = 0;
+			ingredientsList.innerHTML = '';
 		}
 	}); 
 }
