@@ -90,7 +90,7 @@ function initFormHandler() {
 
 			// Delete button
 			const deleteBtn = document.createElement('button');
-			deleteBtn.textContent = 'delete';
+			deleteBtn.textContent = 'remove';
 			deleteBtn.style.marginLeft = '10px';
 			deleteBtn.style.cursor = 'pointer';
 			deleteBtn.setAttribute('aria-label', `Remove ${ingredient}`);
@@ -129,7 +129,7 @@ function initFormHandler() {
 			span.textContent = step;
 
 			const deleteBtn = document.createElement('button');
-			deleteBtn.textContent = 'delete';
+			deleteBtn.textContent = 'remove';
 			deleteBtn.style.marginLeft = '10px';
 			deleteBtn.style.cursor = 'pointer';
 			deleteBtn.setAttribute('aria-label', `Remove step: ${step}`);
