@@ -31,6 +31,9 @@ jobs:
       - name: Run HTMLHint
         run: npm run htmlhint || touch htmlhint.failed
         continue-on-error: true
+      
+      - name: Generate JSDoc 
+        run : npm run jsdoc
 
       - name: Fail job if any linter failed
         run: |
