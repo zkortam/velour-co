@@ -178,6 +178,26 @@ function initFormHandler() {
 		const author = formData.get("author");
 		const steps = [...stepsArray];
 		const ingredients = [...ingredientsArray];
+		
+		//Time Estimate for recipe
+		const hours = parseInt(formData.get("timeHours") || "0");
+		const minutes = parseInt(formData.get("timeMinutes") || "0");
+		let timeEstimate = '';
+		if (hours > 0) {
+			timeEstimate += `${hours} hr`;
+		}
+
+		if (hours > 0 && minutes > 0) {
+			timeEstimate += ' ';
+		}
+
+		if (minutes > 0) {
+			timeEstimate += `${minutes} min`;
+		}
+		//Time estimate is saved as (x hr y min) 
+		timeEstimate = timeEstimate.trim();
+
+
 
 		//Tags are a combination of the predefined options and Custom tags, add them to one string
 		const predefinedTag = formData.get("difficulty");
@@ -202,7 +222,8 @@ function initFormHandler() {
 			author,
 			ingredients,
 			steps,
-			tags
+			tags,
+			timeEstimate
 		}
 
 		//If User is Using URL, get image url 

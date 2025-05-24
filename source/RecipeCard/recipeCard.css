@@ -1,3 +1,4 @@
+/* Some styling for the form to make everything less condensed */
 form {
   display: flex;
   flex-wrap: wrap;          
