@@ -11,3 +11,7 @@ form label {
   flex-direction: column;
   font-weight: bold;
 }
+
+h1{
+  color: black;
+}
