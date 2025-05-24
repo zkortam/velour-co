@@ -71,10 +71,12 @@
 
         
         <!-- Steps Input -->
-        <label for="steps">
+        <label for="stepInput">
             Steps:
-            <textarea name="steps" id="steps" placeholder="Recipe Steps" cols="38" rows="5" required></textarea>
+            <input type="text" id="stepInput" placeholder="Enter a step">
+            <button type="button" id="addStepBtn">Add</button>
         </label>
+        <ol id="stepsList"></ol>
         
         <!-- Create Card Button -->
         <button type="submit">Create Recipe</button> 

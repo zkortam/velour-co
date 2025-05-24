@@ -114,6 +114,58 @@ function initFormHandler() {
 		}
 	});
 
+	const stepsArray = [];
+	const stepInput = document.getElementById('stepInput');
+	const addStepBtn = document.getElementById('addStepBtn');
+	const stepsList = document.getElementById('stepsList');
+
+	addStepBtn.addEventListener('click', () => {
+		const step = stepInput.value.trim();
+		if (step) {
+			stepsArray.push(step);
+
+			const li = document.createElement('li');
+			const span = document.createElement('span');
+			span.textContent = step;
+
+			const deleteBtn = document.createElement('button');
+			deleteBtn.textContent = 'delete';
+			deleteBtn.style.marginLeft = '10px';
+			deleteBtn.style.cursor = 'pointer';
+			deleteBtn.setAttribute('aria-label', `Remove step: ${step}`);
+
+			deleteBtn.addEventListener('click', () => {
+				const index = stepsArray.indexOf(step);
+				if (index !== -1) {
+					stepsArray.splice(index, 1);
+				}
+				li.remove();
+			});
+
+			li.appendChild(span);
+			li.appendChild(deleteBtn);
+			stepsList.appendChild(li);
+
+			stepInput.value = '';
+			stepInput.focus();
+		}
+	});
+
+	//Hitting enter on the keyboard is the same as pressing add when typing in ingredient or step
+	stepInput.addEventListener('keydown', (e) => {
+		if (e.key === 'Enter') {
+			e.preventDefault();
+			addStepBtn.click();
+		}
+	});
+	ingredientInput.addEventListener('keydown', (e) => {
+		if (e.key === 'Enter') {
+			e.preventDefault();
+			addIngredientBtn.click();
+		}
+	});
+
+
 
 	form.addEventListener('submit', (event) => {
 		//prevent page from reloading
@@ -124,7 +176,7 @@ function initFormHandler() {
 		//Get inputs from Recipce Card form
 		const name = formData.get("name");
 		const author = formData.get("author");
-		const steps = formData.get("steps");
+		const steps = [...stepsArray];
 		const ingredients = [...ingredientsArray];
 
 		//Tags are a combination of the predefined options and Custom tags, add them to one string
@@ -198,6 +250,10 @@ function initFormHandler() {
 			//reset ingredients list
 			ingredientsArray.length = 0;
 			ingredientsList.innerHTML = '';
+
+			//reset steps list
+			stepsArray.length = 0;
+			stepsList.innerHTML = '';
 		}
 	}); 
 }
