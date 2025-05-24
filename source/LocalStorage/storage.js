@@ -338,3 +338,10 @@ function toggleInputs() {
 }
 
 
+//export functions for tests
+
+export {
+  getRecipesFromStorage,
+  addRecipesToDocument,
+  saveRecipesToStorage
+};
