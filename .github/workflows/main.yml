@@ -24,7 +24,8 @@ jobs:
         run: npm ci
 
       - name: Auto-fix minor ESLint issues
-        run: npm run lint -- --fix
+        run: npm run lint -- --fix  
+        continue-on-error: true
 
       - name: Run ESLint
         run: npm run lint || touch eslint.failed
