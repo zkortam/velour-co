@@ -8,6 +8,7 @@
   "opts": {
     "destination": "./docs",
     "recurse": true,
+    "readme": "./README.md",
     "template": "templates/default"
   },
   "plugins": []
