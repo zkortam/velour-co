@@ -17,19 +17,19 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 opacity-60" />
         
         {/* Flowing Blue-to-Hot-Pink Gradient Blobs */}
-        <div className="absolute -top-32 -left-32 w-[800px] h-[800px] bg-gradient-to-br from-blue-400/40 via-indigo-400/35 via-violet-400/40 via-purple-400/35 to-pink-400/40 rounded-full blur-2xl animate-float-1">
+        <div className="absolute -top-32 -left-32 w-[800px] h-[800px] bg-gradient-to-br from-blue-400/30 via-indigo-400/25 via-violet-400/30 via-purple-400/25 to-pink-400/30 rounded-full blur-2xl animate-float-1">
         </div>
         
-        <div className="absolute -top-16 -right-32 w-[700px] h-[700px] bg-gradient-to-bl from-indigo-400/35 via-violet-400/40 via-purple-400/35 via-fuchsia-400/40 to-pink-500/35 rounded-full blur-2xl animate-float-2">
+        <div className="absolute -top-16 -right-32 w-[700px] h-[700px] bg-gradient-to-bl from-indigo-400/25 via-violet-400/30 via-purple-400/25 via-fuchsia-400/30 to-pink-500/25 rounded-full blur-2xl animate-float-2">
         </div>
         
-        <div className="absolute -bottom-32 left-1/4 w-[600px] h-[600px] bg-gradient-to-tr from-blue-500/40 via-indigo-400/35 via-violet-400/40 via-purple-400/35 to-fuchsia-400/40 rounded-full blur-2xl animate-float-3">
+        <div className="absolute -bottom-32 left-1/4 w-[600px] h-[600px] bg-gradient-to-tr from-blue-500/30 via-indigo-400/25 via-violet-400/30 via-purple-400/25 to-fuchsia-400/30 rounded-full blur-2xl animate-float-3">
         </div>
         
-        <div className="absolute top-1/3 left-1/3 w-[500px] h-[500px] bg-gradient-to-r from-violet-400/35 via-purple-400/40 via-fuchsia-400/35 to-pink-500/40 rounded-full blur-2xl animate-float-4">
+        <div className="absolute top-1/3 left-1/3 w-[500px] h-[500px] bg-gradient-to-r from-violet-400/25 via-purple-400/30 via-fuchsia-400/25 to-pink-500/30 rounded-full blur-2xl animate-float-4">
         </div>
         
-        <div className="absolute -bottom-16 -right-16 w-[750px] h-[750px] bg-gradient-to-tl from-blue-400/40 via-indigo-500/35 via-violet-400/40 via-purple-500/35 to-pink-400/40 rounded-full blur-2xl animate-float-5">
+        <div className="absolute -bottom-16 -right-16 w-[750px] h-[750px] bg-gradient-to-tl from-blue-400/30 via-indigo-500/25 via-violet-400/30 via-purple-500/25 to-pink-400/30 rounded-full blur-2xl animate-float-5">
         </div>
 
         <div className="max-w-7xl mx-auto text-center relative z-10 -mt-5">
