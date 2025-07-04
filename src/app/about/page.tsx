@@ -2,46 +2,25 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import Link from "next/link"
+import Navigation from "@/components/Navigation"
 
 export default function About() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="border-b border-gray-200 backdrop-blur-sm bg-white/90 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <Link href="/">
-                <h1 className="text-xl font-bold text-black hover:scale-105 transition-transform duration-200 cursor-pointer">Velour & Co.</h1>
-              </Link>
-            </div>
-            <div className="hidden md:flex space-x-8">
-              <Link href="/about" className="text-black font-medium">About</Link>
-              <Link href="/services" className="text-gray-600 hover:text-black transition-colors duration-200 hover:scale-105 transform">Services</Link>
-              <Link href="/process" className="text-gray-600 hover:text-black transition-colors duration-200 hover:scale-105 transform">Process</Link>
-              <Link href="/contact" className="text-gray-600 hover:text-black transition-colors duration-200 hover:scale-105 transform">Contact</Link>
-            </div>
-            <Link href="/contact">
-              <Button className="bg-black text-white hover:bg-gray-800 hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl">
-                Get Started
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <Navigation currentPage="about" />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <section className="pt-20 sm:pt-24 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 opacity-60" />
         <div className="max-w-7xl mx-auto text-center relative z-10">
-          <h1 className="text-5xl sm:text-6xl font-bold text-black mb-6 leading-tight animate-in fade-in slide-in-from-bottom-4 duration-1000">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black mb-4 sm:mb-6 leading-tight animate-in fade-in slide-in-from-bottom-4 duration-1000">
             Redefining
             <br />
             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
               marketing excellence.
             </span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-200">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-200 px-4">
             We're not just another marketing agency. We're strategic partners who believe in building
             lasting relationships and delivering measurable results that transform businesses.
           </p>

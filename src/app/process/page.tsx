@@ -2,46 +2,25 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import Link from "next/link"
+import Navigation from "@/components/Navigation"
 
 export default function Process() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="border-b border-gray-200 backdrop-blur-sm bg-white/90 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <Link href="/">
-                <h1 className="text-xl font-bold text-black hover:scale-105 transition-transform duration-200 cursor-pointer">Velour & Co.</h1>
-              </Link>
-            </div>
-            <div className="hidden md:flex space-x-8">
-              <Link href="/about" className="text-gray-600 hover:text-black transition-colors duration-200 hover:scale-105 transform">About</Link>
-              <Link href="/services" className="text-gray-600 hover:text-black transition-colors duration-200 hover:scale-105 transform">Services</Link>
-              <Link href="/process" className="text-black font-medium">Process</Link>
-              <Link href="/contact" className="text-gray-600 hover:text-black transition-colors duration-200 hover:scale-105 transform">Contact</Link>
-            </div>
-            <Link href="/contact">
-              <Button className="bg-black text-white hover:bg-gray-800 hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl">
-                Get Started
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <Navigation currentPage="process" />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <section className="pt-20 sm:pt-24 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 opacity-60" />
         <div className="max-w-7xl mx-auto text-center relative z-10">
-          <h1 className="text-5xl sm:text-6xl font-bold text-black mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black mb-4 sm:mb-6 leading-tight">
             Our proven
             <br />
             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
               methodology.
             </span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
             The Velour Process is a time-tested framework that ensures consistent results.
             From discovery to optimization, every step is designed to maximize your growth potential.
           </p>
@@ -453,24 +432,24 @@ export default function Process() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-200/20 to-purple-200/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-br from-purple-200/20 to-pink-200/20 rounded-full blur-3xl animate-pulse delay-1000" />
+      <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-br from-blue-200/20 to-purple-200/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 right-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-br from-purple-200/20 to-pink-200/20 rounded-full blur-3xl animate-pulse delay-1000" />
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h2 className="text-5xl sm:text-6xl font-bold mb-8 text-black leading-tight">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 text-black leading-tight">
             Ready to Experience
             <br />
             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
               Our Process?
             </span>
           </h2>
-          <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-600 mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed px-4">
             Let's start with a free consultation where we'll walk you through exactly
             how our process can be tailored to your business needs.
           </p>
           <Link href="/contact">
-            <Button size="lg" className="bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700 hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl group text-lg px-10 py-4 rounded-xl">
+            <Button size="lg" className="w-full sm:w-auto bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700 hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl group text-lg px-8 sm:px-10 py-4 rounded-xl">
               Schedule Free Consultation
               <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none ml-2 text-xl">
                 →

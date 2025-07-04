@@ -3,44 +3,25 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import Link from "next/link"
+import Navigation from "@/components/Navigation"
 
 export default function Contact() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="border-b border-gray-200 backdrop-blur-sm bg-white/90 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <Link href="/">
-                <h1 className="text-xl font-bold text-black hover:scale-105 transition-transform duration-200 cursor-pointer">Velour & Co.</h1>
-              </Link>
-            </div>
-            <div className="hidden md:flex space-x-8">
-              <Link href="/about" className="text-gray-600 hover:text-black transition-colors duration-200 hover:scale-105 transform">About</Link>
-              <Link href="/services" className="text-gray-600 hover:text-black transition-colors duration-200 hover:scale-105 transform">Services</Link>
-              <Link href="/process" className="text-gray-600 hover:text-black transition-colors duration-200 hover:scale-105 transform">Process</Link>
-              <Link href="/contact" className="text-black font-medium">Contact</Link>
-            </div>
-            <Button className="bg-black text-white hover:bg-gray-800 hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl">
-              Get Started
-            </Button>
-          </div>
-        </div>
-      </nav>
+      <Navigation currentPage="contact" />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <section className="pt-20 sm:pt-24 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 opacity-60" />
         <div className="max-w-7xl mx-auto text-center relative z-10">
-          <h1 className="text-5xl sm:text-6xl font-bold text-black mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black mb-4 sm:mb-6 leading-tight">
             Let's start your
             <br />
             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
               growth journey.
             </span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
             Ready to scale your business? We're here to help. Reach out today for a free consultation
             and discover how we can accelerate your growth.
           </p>
@@ -48,17 +29,17 @@ export default function Contact() {
       </section>
 
       {/* Contact Form */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 relative overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-200/30 to-purple-200/30 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-br from-purple-200/30 to-pink-200/30 rounded-full blur-3xl animate-pulse delay-1000" />
+      <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 relative overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-br from-blue-200/30 to-purple-200/30 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 right-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-br from-purple-200/30 to-pink-200/30 rounded-full blur-3xl animate-pulse delay-1000" />
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h2 className="text-4xl font-bold mb-6 text-black">Get Your Free Consultation</h2>
-          <p className="text-xl text-gray-700 mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 text-black">Get Your Free Consultation</h2>
+          <p className="text-lg sm:text-xl text-gray-700 mb-8 sm:mb-12 px-4">
             Tell us about your business and we'll provide you with a customized strategy for growth.
           </p>
 
-          <div className="max-w-md mx-auto space-y-6">
+          <div className="max-w-md mx-auto space-y-4 sm:space-y-6 px-4">
             <Input
               placeholder="Your Name"
               className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-[calc(1rem+4px)] px-6 py-[calc(1rem+12px)] text-lg transition-all duration-200 focus:scale-105 focus:bg-white shadow-none"

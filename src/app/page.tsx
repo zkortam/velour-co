@@ -3,62 +3,43 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import Link from "next/link"
+import Navigation from "@/components/Navigation"
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="border-b border-gray-200 backdrop-blur-sm bg-white/90 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <Link href="/">
-                <h1 className="text-xl font-bold text-black hover:scale-105 transition-transform duration-200 cursor-pointer">Velour & Co.</h1>
-              </Link>
-            </div>
-            <div className="hidden md:flex space-x-8">
-              <Link href="/about" className="text-gray-600 hover:text-black transition-colors duration-200 hover:scale-105 transform">About</Link>
-              <Link href="/services" className="text-gray-600 hover:text-black transition-colors duration-200 hover:scale-105 transform">Services</Link>
-              <Link href="/process" className="text-gray-600 hover:text-black transition-colors duration-200 hover:scale-105 transform">Process</Link>
-              <Link href="/contact" className="text-gray-600 hover:text-black transition-colors duration-200 hover:scale-105 transform">Contact</Link>
-            </div>
-            <Link href="/contact">
-              <Button className="bg-black text-white hover:bg-gray-800 hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl">
-                Get Started
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <Navigation currentPage="home" />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <section className="pt-20 sm:pt-24 pb-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         {/* Gradient Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 opacity-60" />
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-200/20 to-purple-200/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-gradient-to-br from-purple-200/20 to-pink-200/20 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-20 left-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-br from-blue-200/20 to-purple-200/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 right-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-br from-purple-200/20 to-pink-200/20 rounded-full blur-3xl animate-pulse delay-1000" />
 
         <div className="max-w-7xl mx-auto text-center relative z-10">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-black mb-6 leading-tight animate-in fade-in slide-in-from-bottom-4 duration-1000">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-black mb-4 sm:mb-6 leading-tight animate-in fade-in slide-in-from-bottom-4 duration-1000">
               Scale your business
               <br />
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-200">
                 with strategic marketing.
               </span>
             </h1>
-            <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
+            <p className="text-lg sm:text-xl text-gray-600 mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300 px-4">
               Velour & Co. empowers clients to rapidly scale their businesses with
               comprehensive marketing solutions across California.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500">
-              <Button size="lg" className="bg-black text-white hover:bg-gray-800 text-lg px-8 py-3 hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl group">
-                Book Free Consultation
-                <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none ml-2">
-                  →
-                </span>
-              </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-3 hover:scale-105 transition-all duration-200 border-gray-300 hover:border-black hover:shadow-lg">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500 px-4">
+              <Link href="/contact">
+                <Button size="lg" className="w-full sm:w-auto bg-black text-white hover:bg-gray-800 text-lg px-6 sm:px-8 py-3 hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl group">
+                  Book Free Consultation
+                  <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none ml-2">
+                    →
+                  </span>
+                </Button>
+              </Link>
+              <Button variant="outline" size="lg" className="w-full sm:w-auto text-lg px-6 sm:px-8 py-3 hover:scale-105 transition-all duration-200 border-gray-300 hover:border-black hover:shadow-lg">
                 View Our Work
               </Button>
             </div>
@@ -67,19 +48,19 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white relative">
+      <section id="about" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white relative">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="animate-in fade-in slide-in-from-left-8 duration-1000">
-              <h2 className="text-4xl font-bold text-black mb-6">
+              <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4 sm:mb-6">
                 Not just another marketing agency.
               </h2>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
                 Founded in 2025 in La Jolla, California, we built Velour & Co. on a simple belief:
                 businesses deserve marketing partners who think strategically, execute flawlessly,
                 and deliver measurable results that transform growth trajectories.
               </p>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
                 We're selective about who we work with because we believe in building long-term partnerships,
                 not just completing projects. Your success becomes our success.
               </p>
@@ -92,7 +73,7 @@ export default function Home() {
                 </Button>
               </Link>
             </div>
-            <div className="grid grid-cols-2 gap-8 animate-in fade-in slide-in-from-right-8 duration-1000 delay-200">
+            <div className="grid grid-cols-2 gap-4 sm:gap-8 animate-in fade-in slide-in-from-right-8 duration-1000 delay-200">
               <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-blue-50 to-purple-50 hover:scale-105 transition-all duration-300 cursor-pointer group hover:shadow-lg">
                 <div className="text-4xl font-bold text-black mb-2 group-hover:scale-110 transition-transform duration-300">2025</div>
                 <div className="text-gray-600">Founded</div>
