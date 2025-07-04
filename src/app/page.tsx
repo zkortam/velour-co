@@ -15,10 +15,27 @@ export default function Home() {
       <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         {/* Gradient Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 opacity-60" />
+        
+        {/* Animated Background Elements */}
         <div className="absolute top-20 left-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-br from-blue-200/20 to-purple-200/20 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-20 right-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-br from-purple-200/20 to-pink-200/20 rounded-full blur-3xl animate-pulse delay-1000" />
+        
+        {/* Floating Particles */}
+        <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-blue-300/40 rounded-full animate-bounce" style={{animationDelay: '0s', animationDuration: '3s'}}></div>
+        <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-purple-300/50 rounded-full animate-bounce" style={{animationDelay: '1s', animationDuration: '4s'}}></div>
+        <div className="absolute bottom-1/3 left-1/5 w-3 h-3 bg-pink-200/30 rounded-full animate-bounce" style={{animationDelay: '2s', animationDuration: '5s'}}></div>
+        <div className="absolute top-1/2 right-1/3 w-1.5 h-1.5 bg-blue-200/40 rounded-full animate-bounce" style={{animationDelay: '0.5s', animationDuration: '3.5s'}}></div>
+        <div className="absolute bottom-1/4 right-1/5 w-2 h-2 bg-purple-200/35 rounded-full animate-bounce" style={{animationDelay: '1.5s', animationDuration: '4.5s'}}></div>
+        
+        {/* Moving Gradient Orbs */}
+        <div className="absolute top-1/3 left-1/2 w-32 h-32 bg-gradient-to-r from-blue-200/10 to-purple-200/10 rounded-full blur-2xl animate-ping" style={{animationDuration: '6s'}}></div>
+        <div className="absolute bottom-1/3 right-1/2 w-24 h-24 bg-gradient-to-r from-purple-200/10 to-pink-200/10 rounded-full blur-2xl animate-ping" style={{animationDelay: '3s', animationDuration: '8s'}}></div>
+        
+        {/* Floating Geometric Shapes */}
+        <div className="absolute top-1/4 right-1/6 w-4 h-4 border border-blue-300/20 rotate-45 animate-spin" style={{animationDuration: '15s'}}></div>
+        <div className="absolute bottom-1/4 left-1/6 w-6 h-6 border border-purple-300/20 rotate-12 animate-spin" style={{animationDelay: '5s', animationDuration: '20s'}}></div>
 
-        <div className="max-w-7xl mx-auto text-center relative z-10 py-20">
+        <div className="max-w-7xl mx-auto text-center relative z-10 -mt-5">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-black mb-4 sm:mb-6 leading-tight animate-in fade-in slide-in-from-bottom-4 duration-1000">
               Scale your business
