@@ -67,20 +67,20 @@ export default function Contact() {
     try {
       console.log('Submitting to Formspark:', formData)
       
-      // Submit directly to Formspark
+      // Create form data using URLSearchParams to avoid CORS preflight
+      const formDataToSend = new URLSearchParams()
+      formDataToSend.append('name', formData.name)
+      formDataToSend.append('email', formData.email)
+      formDataToSend.append('company', formData.company)
+      formDataToSend.append('phone', formData.phone)
+      formDataToSend.append('message', `New consultation request from ${formData.name} at ${formData.company}. Phone: ${formData.phone}. Email: ${formData.email}`)
+
       const response = await fetch(FORMSPARK_ACTION_URL, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          company: formData.company,
-          phone: formData.phone,
-          message: `New consultation request from ${formData.name} at ${formData.company}. Phone: ${formData.phone}. Email: ${formData.email}`
-        }),
+        body: formDataToSend.toString(),
       })
 
       console.log('Formspark response status:', response.status)
