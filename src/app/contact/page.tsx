@@ -1,11 +1,127 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import Link from "next/link"
 import Navigation from "@/components/Navigation"
+import { useState } from "react"
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    phone: ''
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [errors, setErrors] = useState<{[key: string]: string}>({})
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors(prev => ({ ...prev, [name]: '' }))
+    }
+  }
+
+  const validateForm = () => {
+    const newErrors: {[key: string]: string} = {}
+    
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required'
+    }
+    
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required'
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email'
+    }
+    
+    if (!formData.company.trim()) {
+      newErrors.company = 'Company name is required'
+    }
+    
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'Phone number is required'
+    }
+    
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    if (!validateForm()) {
+      return
+    }
+    
+    setIsSubmitting(true)
+    
+    try {
+      // Simulate API call - replace with actual endpoint
+      await new Promise(resolve => setTimeout(resolve, 2000))
+      
+      // Here you would typically send the data to your backend
+      console.log('Consultation request submitted:', formData)
+      
+      setIsSubmitted(true)
+      setFormData({ name: '', email: '', company: '', phone: '' })
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      setErrors({ submit: 'Something went wrong. Please try again.' })
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  if (isSubmitted) {
+    return (
+      <div className="min-h-screen bg-white">
+        <Navigation currentPage="contact" />
+        
+        <section className="pt-20 sm:pt-24 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-white to-blue-50 opacity-60" />
+          <div className="max-w-4xl mx-auto text-center relative z-10">
+            <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-8">
+              <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h1 className="text-4xl sm:text-5xl font-bold text-black mb-6">
+              Consultation Requested!
+            </h1>
+            <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+              Thank you for your interest in working with Velour & Co. We've received your consultation request and will be in touch within 24 hours to schedule your free 30-minute strategy session.
+            </p>
+            <div className="space-y-4">
+              <p className="text-gray-600">
+                <strong>What's next?</strong>
+              </p>
+              <ul className="text-gray-600 space-y-2 max-w-md mx-auto text-left">
+                <li>• We'll review your business information</li>
+                <li>• Schedule a convenient time for your consultation</li>
+                <li>• Prepare a customized strategy for your business</li>
+                <li>• Discuss how we can accelerate your growth</li>
+              </ul>
+            </div>
+            <div className="mt-12">
+              <Link href="/">
+                <Button className="bg-black text-white hover:bg-gray-800 hover:scale-105 transition-all duration-200">
+                  Return to Home
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+      </div>
+    )
+  }
+
   return (
     <div className="min-h-screen bg-white">
       <Navigation currentPage="contact" />
@@ -39,31 +155,48 @@ export default function Contact() {
             Tell us about your business and we'll provide you with a customized strategy for growth.
           </p>
 
-          <div className="max-w-md mx-auto space-y-4 sm:space-y-6 px-4">
+          <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4 sm:space-y-6 px-4">
             <Input
               placeholder="Your Name"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
               className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-[calc(1rem+4px)] px-6 py-[calc(1rem+12px)] text-lg transition-all duration-200 focus:scale-105 focus:bg-white shadow-none"
             />
+            {errors.name && <p className="text-sm text-red-500">{errors.name}</p>}
             <Input
               placeholder="Email Address"
               type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
               className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-[calc(1rem+4px)] px-6 py-[calc(1rem+12px)] text-lg transition-all duration-200 focus:scale-105 focus:bg-white shadow-none"
             />
+            {errors.email && <p className="text-sm text-red-500">{errors.email}</p>}
             <Input
               placeholder="Company Name"
+              name="company"
+              value={formData.company}
+              onChange={handleInputChange}
               className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-[calc(1rem+4px)] px-6 py-[calc(1rem+12px)] text-lg transition-all duration-200 focus:scale-105 focus:bg-white shadow-none"
             />
+            {errors.company && <p className="text-sm text-red-500">{errors.company}</p>}
             <Input
               placeholder="Phone Number"
+              name="phone"
+              value={formData.phone}
+              onChange={handleInputChange}
               className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-[calc(1rem+4px)] px-6 py-[calc(1rem+12px)] text-lg transition-all duration-200 focus:scale-105 focus:bg-white shadow-none"
             />
-            <Button size="lg" className="w-full bg-blue-900 hover:bg-blue-950 text-white hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl group text-lg py-[calc(1rem+10px)] rounded-[calc(1rem+4px)] border-0">
-              Book Free Consultation
-              <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none ml-2">
-                →
-              </span>
-            </Button>
-          </div>
+            {errors.phone && <p className="text-sm text-red-500">{errors.phone}</p>}
+                         <Button type="submit" size="lg" className="w-full bg-blue-900 hover:bg-blue-950 text-white hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl group text-lg py-[calc(1rem+10px)] rounded-[calc(1rem+4px)] border-0" disabled={isSubmitting}>
+               {isSubmitting ? 'Booking...' : 'Book Free Consultation'}
+               <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none ml-2">
+                 →
+               </span>
+             </Button>
+             {errors.submit && <p className="text-sm text-red-500">{errors.submit}</p>}
+           </form>
 
           <p className="text-sm text-gray-600 mt-6">
             No commitments. Free 30-minute strategy session.
