@@ -61,22 +61,22 @@ export default function Contact() {
           <div className="max-w-md mx-auto space-y-6">
             <Input
               placeholder="Your Name"
-              className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-2xl px-6 py-[calc(1rem+7px)] text-lg transition-all duration-200 focus:scale-105 focus:bg-white"
+              className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-[calc(1rem+4px)] px-6 py-[calc(1rem+12px)] text-lg transition-all duration-200 focus:scale-105 focus:bg-white shadow-none"
             />
             <Input
               placeholder="Email Address"
               type="email"
-              className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-2xl px-6 py-[calc(1rem+7px)] text-lg transition-all duration-200 focus:scale-105 focus:bg-white"
+              className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-[calc(1rem+4px)] px-6 py-[calc(1rem+12px)] text-lg transition-all duration-200 focus:scale-105 focus:bg-white shadow-none"
             />
             <Input
               placeholder="Company Name"
-              className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-2xl px-6 py-[calc(1rem+7px)] text-lg transition-all duration-200 focus:scale-105 focus:bg-white"
+              className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-[calc(1rem+4px)] px-6 py-[calc(1rem+12px)] text-lg transition-all duration-200 focus:scale-105 focus:bg-white shadow-none"
             />
             <Input
               placeholder="Phone Number"
-              className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-2xl px-6 py-[calc(1rem+7px)] text-lg transition-all duration-200 focus:scale-105 focus:bg-white"
+              className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-[calc(1rem+4px)] px-6 py-[calc(1rem+12px)] text-lg transition-all duration-200 focus:scale-105 focus:bg-white shadow-none"
             />
-            <Button size="lg" className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700 hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl group text-lg py-4 rounded-2xl border-0">
+            <Button size="lg" className="w-full bg-blue-900 hover:bg-blue-950 text-white hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl group text-lg py-[calc(1rem+10px)] rounded-[calc(1rem+4px)] border-0">
               Book Free Consultation
               <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none ml-2">
                 →
