@@ -6,8 +6,41 @@ import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import Link from "next/link"
 import Navigation from "@/components/Navigation"
+import { useState } from "react"
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  })
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    const subject = encodeURIComponent('New Consultation Request - Velour & Co.')
+    const body = encodeURIComponent(`
+Name: ${formData.name}
+Email: ${formData.email}
+
+Message:
+${formData.message}
+
+---
+This consultation request was submitted through the Velour & Co. website.
+    `)
+    
+    const mailtoLink = `mailto:hello@velourco.com?subject=${subject}&body=${body}`
+    window.open(mailtoLink, '_blank')
+  }
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  }
+
   return (
     <div className="min-h-screen bg-white">
       <Navigation currentPage="contact" />
@@ -42,13 +75,14 @@ export default function Contact() {
           </p>
 
           <form 
-            action="https://submit-form.com/wrWBRQIGH"
-            method="POST"
+            onSubmit={handleSubmit}
             className="max-w-md mx-auto space-y-4 sm:space-y-6 px-4"
           >
             <Input
               placeholder="Your Name"
               name="name"
+              value={formData.name}
+              onChange={handleInputChange}
               required
               className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-[calc(1rem+4px)] px-6 py-[calc(1rem+5px)] text-lg transition-all duration-200 focus:scale-105 focus:bg-white shadow-none"
             />
@@ -57,6 +91,8 @@ export default function Contact() {
               placeholder="Email Address"
               type="email"
               name="email"
+              value={formData.email}
+              onChange={handleInputChange}
               required
               className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-[calc(1rem+4px)] px-6 py-[calc(1rem+5px)] text-lg transition-all duration-200 focus:scale-105 focus:bg-white shadow-none"
             />
@@ -64,6 +100,8 @@ export default function Contact() {
             <textarea
               placeholder="Tell us about your business and what you're looking to achieve"
               name="message"
+              value={formData.message}
+              onChange={handleInputChange}
               required
               rows={4}
               className="w-full bg-white/80 backdrop-blur-sm text-black border-0 rounded-[calc(1rem+4px)] px-6 py-[calc(1rem+5px)] text-lg transition-all duration-200 focus:scale-105 focus:bg-white shadow-none resize-none"
