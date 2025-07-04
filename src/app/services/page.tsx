@@ -459,13 +459,13 @@ export default function Services() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white relative overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white text-black relative overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-200/30 to-purple-200/30 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-br from-purple-200/30 to-pink-200/30 rounded-full blur-3xl animate-pulse delay-1000" />
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h2 className="text-4xl font-bold mb-6">Ready to Transform Your Marketing?</h2>
-          <p className="text-xl text-gray-300 mb-12">
+          <h2 className="text-4xl font-bold mb-6 text-black">Ready to Transform Your Marketing?</h2>
+          <p className="text-xl text-gray-600 mb-12">
             Let's discuss which services will drive the biggest impact for your business.
             Schedule a free consultation to get started.
           </p>
@@ -479,7 +479,7 @@ export default function Services() {
               </Button>
             </Link>
             <Link href="/process">
-              <Button variant="outline" size="lg" className="text-lg px-8 py-3 border-white text-white hover:bg-white hover:text-black">
+              <Button variant="outline" size="lg" className="text-lg px-8 py-3 border-black text-black hover:bg-black hover:text-white">
                 See Our Process
               </Button>
             </Link>

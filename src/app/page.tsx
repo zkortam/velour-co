@@ -465,16 +465,16 @@ export default function Home() {
           <div className="max-w-md mx-auto space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
             <Input
               placeholder="Your Name"
-              className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-2xl px-6 py-4 text-lg shadow-lg hover:bg-white hover:shadow-xl transition-all duration-200 focus:scale-105 focus:shadow-2xl focus:bg-white"
+              className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-2xl px-6 py-[calc(1rem+7px)] text-lg transition-all duration-200 focus:scale-105 focus:bg-white"
             />
             <Input
               placeholder="Email Address"
               type="email"
-              className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-2xl px-6 py-4 text-lg shadow-lg hover:bg-white hover:shadow-xl transition-all duration-200 focus:scale-105 focus:shadow-2xl focus:bg-white"
+              className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-2xl px-6 py-[calc(1rem+7px)] text-lg transition-all duration-200 focus:scale-105 focus:bg-white"
             />
             <Input
               placeholder="Company Name"
-              className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-2xl px-6 py-4 text-lg shadow-lg hover:bg-white hover:shadow-xl transition-all duration-200 focus:scale-105 focus:shadow-2xl focus:bg-white"
+              className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-2xl px-6 py-[calc(1rem+7px)] text-lg transition-all duration-200 focus:scale-105 focus:bg-white"
             />
             <Button size="lg" className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700 hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl group text-lg py-4 rounded-2xl border-0">
               Book Free Consultation
