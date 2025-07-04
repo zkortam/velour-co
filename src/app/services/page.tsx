@@ -364,8 +364,7 @@ export default function Services() {
 
           <div className="grid lg:grid-cols-3 gap-8 mb-16 mt-8">
             {/* Starter Package */}
-            <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 relative overflow-visible bg-gradient-to-br from-white to-blue-50/50 group">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-[1.02] relative overflow-visible bg-gradient-to-br from-white to-blue-50/50 group">
               <CardHeader className="p-8 pb-6 relative z-10">
                 <div className="flex items-center justify-between mb-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
@@ -376,8 +375,8 @@ export default function Services() {
                     <div className="text-sm text-gray-500">per month</div>
                   </div>
                 </div>
-                <CardTitle className="text-2xl text-black mb-2 group-hover:text-blue-600 transition-colors duration-300">Starter</CardTitle>
-                <CardDescription className="text-gray-600 group-hover:text-gray-700 leading-relaxed">
+                                 <CardTitle className="text-2xl text-black mb-2 transition-colors duration-200">Starter</CardTitle>
+                 <CardDescription className="text-gray-600 leading-relaxed">
                   Perfect for new businesses ready to establish their brand presence and digital foundation.
                 </CardDescription>
               </CardHeader>
@@ -421,7 +420,7 @@ export default function Services() {
                   </div>
 
                   <Link href="/contact">
-                    <Button className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl text-lg py-3 rounded-xl group">
+                                         <Button className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700 hover:scale-[1.02] transition-all duration-200 shadow-lg hover:shadow-xl text-lg py-3 rounded-xl group">
                       Start Your Journey
                       <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>
                     </Button>
@@ -431,11 +430,10 @@ export default function Services() {
             </Card>
 
                          {/* Growth Package */}
-             <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 relative overflow-visible bg-gradient-to-br from-white to-purple-50/50 group">
-               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-purple-500 to-pink-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg z-10">
-                 Most Popular
-               </div>
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                           <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-[1.02] relative overflow-visible bg-gradient-to-br from-white to-purple-50/50 group">
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-purple-500 to-pink-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg z-10">
+                  Most Popular
+                </div>
               <CardHeader className="p-8 pb-6 relative z-10 pt-12">
                 <div className="flex items-center justify-between mb-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center">
@@ -446,8 +444,8 @@ export default function Services() {
                     <div className="text-sm text-gray-500">per month</div>
                   </div>
                 </div>
-                <CardTitle className="text-2xl text-black mb-2 group-hover:text-purple-600 transition-colors duration-300">Growth</CardTitle>
-                <CardDescription className="text-gray-600 group-hover:text-gray-700 leading-relaxed">
+                                 <CardTitle className="text-2xl text-black mb-2 transition-colors duration-200">Growth</CardTitle>
+                 <CardDescription className="text-gray-600 leading-relaxed">
                   Comprehensive marketing suite for businesses ready to scale and capture market share.
                 </CardDescription>
               </CardHeader>
@@ -491,7 +489,7 @@ export default function Services() {
                   </div>
 
                   <Link href="/contact">
-                    <Button className="w-full bg-gradient-to-r from-purple-500 to-pink-600 text-white hover:from-purple-600 hover:to-pink-700 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl text-lg py-3 rounded-xl group">
+                                         <Button className="w-full bg-gradient-to-r from-purple-500 to-pink-600 text-white hover:from-purple-600 hover:to-pink-700 hover:scale-[1.02] transition-all duration-200 shadow-lg hover:shadow-xl text-lg py-3 rounded-xl group">
                       Scale Your Business
                       <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>
                     </Button>
@@ -501,8 +499,7 @@ export default function Services() {
             </Card>
 
                          {/* Enterprise Package */}
-             <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 relative overflow-visible bg-gradient-to-br from-white to-gray-50/50 group">
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-500/5 to-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                           <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-[1.02] relative overflow-visible bg-gradient-to-br from-white to-gray-50/50 group">
               <CardHeader className="p-8 pb-6 relative z-10">
                 <div className="flex items-center justify-between mb-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-gray-700 to-black rounded-xl flex items-center justify-center">
@@ -513,8 +510,8 @@ export default function Services() {
                     <div className="text-sm text-gray-500">per month</div>
                   </div>
                 </div>
-                <CardTitle className="text-2xl text-black mb-2 group-hover:text-gray-700 transition-colors duration-300">Enterprise</CardTitle>
-                <CardDescription className="text-gray-600 group-hover:text-gray-700 leading-relaxed">
+                                 <CardTitle className="text-2xl text-black mb-2 transition-colors duration-200">Enterprise</CardTitle>
+                 <CardDescription className="text-gray-600 leading-relaxed">
                   Fully customized marketing solutions for established businesses seeking market leadership.
                 </CardDescription>
               </CardHeader>
@@ -562,7 +559,7 @@ export default function Services() {
                   </div>
 
                   <Link href="/contact">
-                    <Button className="w-full bg-gradient-to-r from-gray-700 to-black text-white hover:from-gray-800 hover:to-gray-900 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl text-lg py-3 rounded-xl group">
+                                         <Button className="w-full bg-gradient-to-r from-gray-700 to-black text-white hover:from-gray-800 hover:to-gray-900 hover:scale-[1.02] transition-all duration-200 shadow-lg hover:shadow-xl text-lg py-3 rounded-xl group">
                       Custom Solution
                       <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>
                     </Button>
