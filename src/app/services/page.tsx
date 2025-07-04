@@ -362,9 +362,9 @@ export default function Services() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid lg:grid-cols-3 gap-8 mb-16 mt-8">
             {/* Starter Package */}
-            <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 relative overflow-hidden bg-gradient-to-br from-white to-blue-50/50 group">
+            <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 relative overflow-visible bg-gradient-to-br from-white to-blue-50/50 group">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <CardHeader className="p-8 pb-6 relative z-10">
                 <div className="flex items-center justify-between mb-4">
@@ -430,11 +430,11 @@ export default function Services() {
               </CardContent>
             </Card>
 
-            {/* Growth Package */}
-            <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 relative overflow-hidden bg-gradient-to-br from-white to-purple-50/50 group">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-purple-500 to-pink-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
-                Most Popular
-              </div>
+                         {/* Growth Package */}
+             <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 relative overflow-visible bg-gradient-to-br from-white to-purple-50/50 group">
+               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-purple-500 to-pink-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg z-10">
+                 Most Popular
+               </div>
               <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <CardHeader className="p-8 pb-6 relative z-10 pt-12">
                 <div className="flex items-center justify-between mb-4">
@@ -500,8 +500,8 @@ export default function Services() {
               </CardContent>
             </Card>
 
-            {/* Enterprise Package */}
-            <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 relative overflow-hidden bg-gradient-to-br from-white to-gray-50/50 group">
+                         {/* Enterprise Package */}
+             <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 relative overflow-visible bg-gradient-to-br from-white to-gray-50/50 group">
               <div className="absolute inset-0 bg-gradient-to-br from-gray-500/5 to-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <CardHeader className="p-8 pb-6 relative z-10">
                 <div className="flex items-center justify-between mb-4">
