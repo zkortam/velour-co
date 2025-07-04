@@ -6,83 +6,8 @@ import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import Link from "next/link"
 import Navigation from "@/components/Navigation"
-import { useState } from "react"
 
 export default function Contact() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
-
-  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    
-    const formData = new FormData(e.currentTarget)
-    
-    try {
-      // Use a proxy or alternative approach to avoid CORS
-      // For now, we'll simulate success and log the data
-      console.log('Form data to be sent:', {
-        name: formData.get('name'),
-        email: formData.get('email'),
-        message: formData.get('message')
-      })
-      
-      // Simulate API call delay
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
-      setIsSubmitted(true)
-    } catch (error) {
-      console.error('Error submitting form:', error)
-      // Still show success for demo purposes
-      setIsSubmitted(true)
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
-
-  if (isSubmitted) {
-    return (
-      <div className="min-h-screen bg-white">
-        <Navigation currentPage="contact" />
-        
-        <section className="pt-20 sm:pt-24 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-white to-blue-50 opacity-60" />
-          <div className="max-w-4xl mx-auto text-center relative z-10">
-            <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-8">
-              <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-            </div>
-            <h1 className="text-4xl sm:text-5xl font-bold text-black mb-6">
-              Consultation Requested!
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Thank you for your interest in working with Velour & Co. We've received your consultation request and will be in touch within 24 hours to schedule your free 30-minute strategy session.
-            </p>
-            <div className="space-y-4">
-              <p className="text-gray-600">
-                <strong>What's next?</strong>
-              </p>
-              <ul className="text-gray-600 space-y-2 max-w-md mx-auto text-left">
-                <li>• We'll review your business information</li>
-                <li>• Schedule a convenient time for your consultation</li>
-                <li>• Prepare a customized strategy for your business</li>
-                <li>• Discuss how we can accelerate your growth</li>
-              </ul>
-            </div>
-            <div className="mt-12">
-              <Link href="/">
-                <Button className="bg-black text-white hover:bg-gray-800 hover:scale-105 transition-all duration-200">
-                  Return to Home
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </section>
-      </div>
-    )
-  }
-
   return (
     <div className="min-h-screen bg-white">
       <Navigation currentPage="contact" />
@@ -117,7 +42,8 @@ export default function Contact() {
           </p>
 
           <form 
-            onSubmit={handleFormSubmit}
+            action="https://submit-form.com/wrWBRQIGH"
+            method="POST"
             className="max-w-md mx-auto space-y-4 sm:space-y-6 px-4"
           >
             <Input
@@ -146,10 +72,9 @@ export default function Contact() {
             <Button 
               type="submit" 
               size="lg" 
-              className="w-full bg-blue-900 hover:bg-blue-950 text-white hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl group text-lg py-[calc(1rem+10px)] rounded-[calc(1rem+4px)] border-0" 
-              disabled={isSubmitting}
+              className="w-full bg-blue-900 hover:bg-blue-950 text-white hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl group text-lg py-[calc(1rem+10px)] rounded-[calc(1rem+4px)] border-0"
             >
-              {isSubmitting ? 'Sending...' : 'Book Free Consultation'}
+              Book Free Consultation
               <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none ml-2">
                 →
               </span>
