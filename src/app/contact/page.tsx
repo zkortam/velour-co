@@ -64,36 +64,48 @@ export default function Contact() {
     setIsSubmitting(true)
     
     try {
-      // Use Netlify Forms - much more reliable than Formspark
-      const formDataToSend = new FormData()
-      formDataToSend.append('name', formData.name)
-      formDataToSend.append('email', formData.email)
-      formDataToSend.append('company', formData.company)
-      formDataToSend.append('phone', formData.phone)
-      formDataToSend.append('message', formData.message || 'No additional message provided')
-      formDataToSend.append('form-name', 'consultation')
+      // Create a hidden form and submit it to Formspark
+      const form = document.createElement('form')
+      form.method = 'POST'
+      form.action = 'https://submit-form.com/wrWBRQIGH'
+      form.style.display = 'none'
       
-      // Submit to Netlify Forms
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formDataToSend as any).toString()
-      })
+      // Add form fields
+      const nameInput = document.createElement('input')
+      nameInput.type = 'hidden'
+      nameInput.name = 'name'
+      nameInput.value = formData.name
+      form.appendChild(nameInput)
       
-      if (response.ok) {
-        console.log('Consultation request submitted successfully via Netlify Forms:', formData)
-        setIsSubmitted(true)
-        setFormData({ name: '', email: '', company: '', phone: '', message: '' })
-      } else {
-        throw new Error(`Form submission failed: ${response.status}`)
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error)
+      const emailInput = document.createElement('input')
+      emailInput.type = 'hidden'
+      emailInput.name = 'email'
+      emailInput.value = formData.email
+      form.appendChild(emailInput)
       
-      // Fallback: Show success anyway and log the data
-      console.log('Form submission failed, but logging data for manual follow-up:', formData)
+      const messageInput = document.createElement('textarea')
+      messageInput.name = 'message'
+      messageInput.value = `Company: ${formData.company}\nPhone: ${formData.phone}\n\nConsultation Request: I'm interested in a free 30-minute strategy session to discuss how Velour & Co. can help accelerate my business growth.${formData.message ? `\n\nAdditional Information: ${formData.message}` : ''}`
+      form.appendChild(messageInput)
+      
+      // Add form to page and submit
+      document.body.appendChild(form)
+      
+      // Submit the form
+      form.submit()
+      
+      // Remove the form after submission
+      setTimeout(() => {
+        document.body.removeChild(form)
+      }, 1000)
+      
+      console.log('Consultation request submitted to Formspark:', formData)
+      
       setIsSubmitted(true)
       setFormData({ name: '', email: '', company: '', phone: '', message: '' })
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      setErrors({ submit: 'Something went wrong. Please try again.' })
     } finally {
       setIsSubmitting(false)
     }
@@ -175,7 +187,7 @@ export default function Contact() {
             Tell us about your business and we'll provide you with a customized strategy for growth.
           </p>
 
-          <form onSubmit={handleSubmit} name="consultation" data-netlify="true" className="max-w-md mx-auto space-y-4 sm:space-y-6 px-4">
+          <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4 sm:space-y-6 px-4">
             <Input
               placeholder="Your Name"
               name="name"
