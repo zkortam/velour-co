@@ -7,79 +7,80 @@ import { Separator } from "@/components/ui/separator"
 import Link from "next/link"
 import Navigation from "@/components/Navigation"
 import { useState } from "react"
+import { useFormspark } from "@formspark/use-formspark"
+
+const FORMSPARK_FORM_ID = "wrWBRQIGH"
 
 export default function Contact() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    phone: ''
+  })
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [errors, setErrors] = useState<{[key: string]: string}>({})
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setErrors({})
+  const [submit, submitting] = useFormspark({
+    formId: FORMSPARK_FORM_ID,
+  })
 
-    const formData = new FormData(e.currentTarget)
-    const data = {
-      name: formData.get('name') as string,
-      email: formData.get('email') as string,
-      company: formData.get('company') as string,
-      phone: formData.get('phone') as string
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors(prev => ({ ...prev, [name]: '' }))
     }
+  }
 
-    // Validate form data
+  const validateForm = () => {
     const newErrors: {[key: string]: string} = {}
     
-    if (!data.name?.trim()) {
+    if (!formData.name.trim()) {
       newErrors.name = 'Name is required'
     }
     
-    if (!data.email?.trim()) {
+    if (!formData.email.trim()) {
       newErrors.email = 'Email is required'
-    } else if (!/\S+@\S+\.\S+/.test(data.email)) {
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = 'Please enter a valid email'
     }
     
-    if (!data.company?.trim()) {
+    if (!formData.company.trim()) {
       newErrors.company = 'Company name is required'
     }
     
-    if (!data.phone?.trim()) {
+    if (!formData.phone.trim()) {
       newErrors.phone = 'Phone number is required'
     }
     
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors)
-      setIsSubmitting(false)
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    if (!validateForm()) {
       return
     }
-
+    
     try {
-      const response = await fetch('https://submit-form.com/wrWBRQIGH', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify({
-          name: data.name,
-          email: data.email,
-          company: data.company,
-          phone: data.phone,
-          subject: 'New Consultation Request - Velour & Co.',
-          message: `New consultation request from ${data.name} at ${data.company}. Email: ${data.email}, Phone: ${data.phone}`
-        }),
+      // Submit to Formspark
+      await submit({
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        phone: formData.phone,
+        message: `New consultation request from ${formData.name} at ${formData.company}. Phone: ${formData.phone}. Email: ${formData.email}`
       })
-
-      if (response.ok) {
-        setIsSubmitted(true)
-      } else {
-        throw new Error('Form submission failed')
-      }
+      
+      setIsSubmitted(true)
+      setFormData({ name: '', email: '', company: '', phone: '' })
     } catch (error) {
       console.error('Error submitting form:', error)
-      setErrors({ submit: 'Something went wrong. Please try again or contact us directly.' })
-    } finally {
-      setIsSubmitting(false)
+      setErrors({ submit: 'Something went wrong. Please try again.' })
     }
   }
 
@@ -163,7 +164,8 @@ export default function Contact() {
             <Input
               placeholder="Your Name"
               name="name"
-              required
+              value={formData.name}
+              onChange={handleInputChange}
               className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-[calc(1rem+4px)] px-6 py-[calc(1rem+12px)] text-lg transition-all duration-200 focus:scale-105 focus:bg-white shadow-none"
             />
             {errors.name && <p className="text-sm text-red-500">{errors.name}</p>}
@@ -171,26 +173,29 @@ export default function Contact() {
               placeholder="Email Address"
               type="email"
               name="email"
-              required
+              value={formData.email}
+              onChange={handleInputChange}
               className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-[calc(1rem+4px)] px-6 py-[calc(1rem+12px)] text-lg transition-all duration-200 focus:scale-105 focus:bg-white shadow-none"
             />
             {errors.email && <p className="text-sm text-red-500">{errors.email}</p>}
             <Input
               placeholder="Company Name"
               name="company"
-              required
+              value={formData.company}
+              onChange={handleInputChange}
               className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-[calc(1rem+4px)] px-6 py-[calc(1rem+12px)] text-lg transition-all duration-200 focus:scale-105 focus:bg-white shadow-none"
             />
             {errors.company && <p className="text-sm text-red-500">{errors.company}</p>}
             <Input
               placeholder="Phone Number"
               name="phone"
-              required
+              value={formData.phone}
+              onChange={handleInputChange}
               className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-[calc(1rem+4px)] px-6 py-[calc(1rem+12px)] text-lg transition-all duration-200 focus:scale-105 focus:bg-white shadow-none"
             />
             {errors.phone && <p className="text-sm text-red-500">{errors.phone}</p>}
-                         <Button type="submit" size="lg" className="w-full bg-blue-900 hover:bg-blue-950 text-white hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl group text-lg py-[calc(1rem+10px)] rounded-[calc(1rem+4px)] border-0" disabled={isSubmitting}>
-               {isSubmitting ? 'Booking...' : 'Book Free Consultation'}
+                         <Button type="submit" size="lg" className="w-full bg-blue-900 hover:bg-blue-950 text-white hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl group text-lg py-[calc(1rem+10px)] rounded-[calc(1rem+4px)] border-0" disabled={submitting}>
+               {submitting ? 'Booking...' : 'Book Free Consultation'}
                <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none ml-2">
                  →
                </span>
