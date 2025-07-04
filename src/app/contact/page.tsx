@@ -7,9 +7,8 @@ import { Separator } from "@/components/ui/separator"
 import Link from "next/link"
 import Navigation from "@/components/Navigation"
 import { useState } from "react"
-import { useFormspark } from "@formspark/use-formspark"
 
-const FORMSPARK_FORM_ID = "wrWBRQIGH"
+const FORMSPARK_ACTION_URL = "https://submit-form.com/wrWBRQIGH"
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -18,12 +17,9 @@ export default function Contact() {
     company: '',
     phone: ''
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [errors, setErrors] = useState<{[key: string]: string}>({})
-
-  const [submit, submitting] = useFormspark({
-    formId: FORMSPARK_FORM_ID,
-  })
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
@@ -66,21 +62,36 @@ export default function Contact() {
       return
     }
     
+    setIsSubmitting(true)
+    
     try {
-      // Submit to Formspark
-      await submit({
-        name: formData.name,
-        email: formData.email,
-        company: formData.company,
-        phone: formData.phone,
-        message: `New consultation request from ${formData.name} at ${formData.company}. Phone: ${formData.phone}. Email: ${formData.email}`
+      // Submit to our API route (which handles Formspark)
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          phone: formData.phone,
+        }),
       })
+
+      const result = await response.json()
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to submit form')
+      }
       
       setIsSubmitted(true)
       setFormData({ name: '', email: '', company: '', phone: '' })
     } catch (error) {
       console.error('Error submitting form:', error)
       setErrors({ submit: 'Something went wrong. Please try again.' })
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -194,8 +205,8 @@ export default function Contact() {
               className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-[calc(1rem+4px)] px-6 py-[calc(1rem+12px)] text-lg transition-all duration-200 focus:scale-105 focus:bg-white shadow-none"
             />
             {errors.phone && <p className="text-sm text-red-500">{errors.phone}</p>}
-                         <Button type="submit" size="lg" className="w-full bg-blue-900 hover:bg-blue-950 text-white hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl group text-lg py-[calc(1rem+10px)] rounded-[calc(1rem+4px)] border-0" disabled={submitting}>
-               {submitting ? 'Booking...' : 'Book Free Consultation'}
+                         <Button type="submit" size="lg" className="w-full bg-blue-900 hover:bg-blue-950 text-white hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl group text-lg py-[calc(1rem+10px)] rounded-[calc(1rem+4px)] border-0" disabled={isSubmitting}>
+               {isSubmitting ? 'Booking...' : 'Book Free Consultation'}
                <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none ml-2">
                  →
                </span>
