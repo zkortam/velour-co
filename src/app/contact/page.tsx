@@ -67,6 +67,7 @@ export default function Contact() {
     
     try {
       console.log('Submitting to Formspark:', formData)
+      console.log('Form ID being used:', FORMSPARK_ACTION_URL)
       
       // Use traditional form submission to bypass CORS
       if (hiddenFormRef.current) {
@@ -83,19 +84,43 @@ export default function Contact() {
         if (phoneInput) phoneInput.value = formData.phone
         if (messageInput) messageInput.value = `New consultation request from ${formData.name} at ${formData.company}. Phone: ${formData.phone}. Email: ${formData.email}`
         
+        console.log('Form data being submitted:')
+        console.log('- Name:', nameInput?.value)
+        console.log('- Email:', emailInput?.value)
+        console.log('- Company:', companyInput?.value)
+        console.log('- Phone:', phoneInput?.value)
+        console.log('- Message:', messageInput?.value)
+        
+        // Add event listener to iframe to detect submission completion
+        const iframe = document.querySelector('iframe[name="hidden-form-iframe"]') as HTMLIFrameElement
+        if (iframe) {
+          iframe.onload = () => {
+            console.log('Form submission completed - iframe loaded')
+            setTimeout(() => {
+              setIsSubmitted(true)
+              setFormData({ name: '', email: '', company: '', phone: '' })
+              setIsSubmitting(false)
+            }, 500)
+          }
+        }
+        
         // Submit the hidden form
+        console.log('Submitting hidden form to:', hiddenFormRef.current.action)
         hiddenFormRef.current.submit()
         
-        // Show success immediately since we can't catch the response
+        // Fallback timeout in case iframe doesn't load
         setTimeout(() => {
-          setIsSubmitted(true)
-          setFormData({ name: '', email: '', company: '', phone: '' })
-          setIsSubmitting(false)
-        }, 1000)
+          if (isSubmitting) {
+            console.log('Fallback timeout - assuming submission succeeded')
+            setIsSubmitted(true)
+            setFormData({ name: '', email: '', company: '', phone: '' })
+            setIsSubmitting(false)
+          }
+        }, 3000)
       }
     } catch (error) {
       console.error('Error submitting form:', error)
-      setErrors({ submit: 'Something went wrong. Please try again.' })
+      setErrors({ submit: 'Something went wrong. Please try again. Check the console for details.' })
       setIsSubmitting(false)
     }
   }
