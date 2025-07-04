@@ -1,0 +1,203 @@
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Separator } from "@/components/ui/separator"
+import Link from "next/link"
+
+export default function Contact() {
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Navigation */}
+      <nav className="border-b border-gray-200 backdrop-blur-sm bg-white/90 sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center">
+              <Link href="/">
+                <h1 className="text-xl font-bold text-black hover:scale-105 transition-transform duration-200 cursor-pointer">Velour & Co.</h1>
+              </Link>
+            </div>
+            <div className="hidden md:flex space-x-8">
+              <Link href="/about" className="text-gray-600 hover:text-black transition-colors duration-200 hover:scale-105 transform">About</Link>
+              <Link href="/services" className="text-gray-600 hover:text-black transition-colors duration-200 hover:scale-105 transform">Services</Link>
+              <Link href="/process" className="text-gray-600 hover:text-black transition-colors duration-200 hover:scale-105 transform">Process</Link>
+              <Link href="/contact" className="text-black font-medium">Contact</Link>
+            </div>
+            <Button className="bg-black text-white hover:bg-gray-800 hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl">
+              Get Started
+            </Button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 opacity-60" />
+        <div className="max-w-7xl mx-auto text-center relative z-10">
+          <h1 className="text-5xl sm:text-6xl font-bold text-black mb-6 leading-tight">
+            Let's start your
+            <br />
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+              growth journey.
+            </span>
+          </h1>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Ready to scale your business? We're here to help. Reach out today for a free consultation
+            and discover how we can accelerate your growth.
+          </p>
+        </div>
+      </section>
+
+      {/* Contact Form */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 relative overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-200/30 to-purple-200/30 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-br from-purple-200/30 to-pink-200/30 rounded-full blur-3xl animate-pulse delay-1000" />
+
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h2 className="text-4xl font-bold mb-6 text-black">Get Your Free Consultation</h2>
+          <p className="text-xl text-gray-700 mb-12">
+            Tell us about your business and we'll provide you with a customized strategy for growth.
+          </p>
+
+          <div className="max-w-md mx-auto space-y-6">
+            <Input
+              placeholder="Your Name"
+              className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-2xl px-6 py-4 text-lg shadow-lg hover:bg-white hover:shadow-xl transition-all duration-200 focus:scale-105 focus:shadow-2xl focus:bg-white"
+            />
+            <Input
+              placeholder="Email Address"
+              type="email"
+              className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-2xl px-6 py-4 text-lg shadow-lg hover:bg-white hover:shadow-xl transition-all duration-200 focus:scale-105 focus:shadow-2xl focus:bg-white"
+            />
+            <Input
+              placeholder="Company Name"
+              className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-2xl px-6 py-4 text-lg shadow-lg hover:bg-white hover:shadow-xl transition-all duration-200 focus:scale-105 focus:shadow-2xl focus:bg-white"
+            />
+            <Input
+              placeholder="Phone Number"
+              className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-2xl px-6 py-4 text-lg shadow-lg hover:bg-white hover:shadow-xl transition-all duration-200 focus:scale-105 focus:shadow-2xl focus:bg-white"
+            />
+            <Button size="lg" className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700 hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl group text-lg py-4 rounded-2xl border-0">
+              Book Free Consultation
+              <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none ml-2">
+                →
+              </span>
+            </Button>
+          </div>
+
+          <p className="text-sm text-gray-600 mt-6">
+            No commitments. Free 30-minute strategy session.
+          </p>
+        </div>
+      </section>
+
+      {/* Contact Info */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 text-center p-8">
+              <CardHeader className="p-0 mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <div className="w-8 h-8 bg-white rounded-full relative">
+                    <div className="absolute top-2 left-2 w-4 h-1 bg-blue-500 rounded-full"></div>
+                    <div className="absolute bottom-2 left-2 w-4 h-1 bg-blue-500 rounded-full"></div>
+                  </div>
+                </div>
+                <CardTitle className="text-xl text-black">Phone</CardTitle>
+                <CardDescription className="text-gray-600">
+                  Ready to talk? Give us a call during business hours.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="p-0">
+                <p className="text-lg font-semibold text-black mb-2">(858) 555-GROW</p>
+                <p className="text-gray-600">Mon-Fri, 9AM-6PM PST</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 text-center p-8">
+              <CardHeader className="p-0 mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <div className="w-8 h-6 bg-white rounded-sm relative">
+                    <div className="absolute top-0 left-2 w-4 h-3 border-l-2 border-r-2 border-purple-500 transform rotate-180"></div>
+                  </div>
+                </div>
+                <CardTitle className="text-xl text-black">Email</CardTitle>
+                <CardDescription className="text-gray-600">
+                  Send us a message and we'll respond within 24 hours.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="p-0">
+                <p className="text-lg font-semibold text-black mb-2">hello@velourco.com</p>
+                <p className="text-gray-600">We typically respond same day</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 text-center p-8">
+              <CardHeader className="p-0 mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <div className="relative">
+                    <div className="w-6 h-6 bg-white rounded-full"></div>
+                    <div className="absolute top-1 left-2 w-2 h-2 bg-green-500 rounded-full"></div>
+                  </div>
+                </div>
+                <CardTitle className="text-xl text-black">Location</CardTitle>
+                <CardDescription className="text-gray-600">
+                  Visit us in beautiful La Jolla, California.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="p-0">
+                <p className="text-lg font-semibold text-black mb-2">La Jolla, CA</p>
+                <p className="text-gray-600">By appointment only</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-12 px-4 sm:px-6 lg:px-8 border-t border-gray-200 bg-gradient-to-b from-white to-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="md:col-span-2">
+              <Link href="/">
+                <h3 className="text-xl font-bold text-black mb-4 hover:scale-105 transition-transform duration-200 cursor-pointer">Velour & Co.</h3>
+              </Link>
+              <p className="text-gray-600 mb-4">
+                Empowering businesses to scale rapidly through strategic marketing solutions.
+              </p>
+              <p className="text-gray-600">
+                Based in La Jolla, California<br />
+                Serving clients across the state
+              </p>
+            </div>
+
+            <div>
+              <h4 className="font-semibold text-black mb-4">Services</h4>
+              <ul className="space-y-2 text-gray-600">
+                <li><Link href="/services" className="hover:text-black transition-colors duration-200 cursor-pointer hover:translate-x-1 transform inline-block">Brand Design</Link></li>
+                <li><Link href="/services" className="hover:text-black transition-colors duration-200 cursor-pointer hover:translate-x-1 transform inline-block">Content Creation</Link></li>
+                <li><Link href="/services" className="hover:text-black transition-colors duration-200 cursor-pointer hover:translate-x-1 transform inline-block">Social Media</Link></li>
+                <li><Link href="/services" className="hover:text-black transition-colors duration-200 cursor-pointer hover:translate-x-1 transform inline-block">Web Development</Link></li>
+                <li><Link href="/services" className="hover:text-black transition-colors duration-200 cursor-pointer hover:translate-x-1 transform inline-block">SEO</Link></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-semibold text-black mb-4">Company</h4>
+              <ul className="space-y-2 text-gray-600">
+                <li><Link href="/about" className="hover:text-black transition-colors duration-200 cursor-pointer hover:translate-x-1 transform inline-block">About Us</Link></li>
+                <li><Link href="/contact" className="hover:text-black transition-colors duration-200 cursor-pointer hover:translate-x-1 transform inline-block">Contact</Link></li>
+              </ul>
+            </div>
+          </div>
+
+          <Separator className="my-8" />
+
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-600 hover:text-black transition-colors duration-200">© 2025 Velour & Co. All rights reserved.</p>
+            <p className="text-gray-600 mt-4 md:mt-0 hover:text-black transition-colors duration-200">Founded in La Jolla, California</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  )
+}
