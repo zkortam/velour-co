@@ -17,85 +17,20 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 opacity-60" />
         
         {/* Flowing Rainbow Gradient Blobs */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-pink-300/20 via-purple-300/15 via-blue-300/20 via-cyan-300/15 to-green-300/20 rounded-full blur-3xl animate-pulse opacity-70" 
-             style={{
-               animationDuration: '8s',
-               transform: 'translate(-20%, -10%)',
-               animationName: 'float1'
-             }}>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-pink-300/20 via-purple-300/15 via-blue-300/20 via-cyan-300/15 to-green-300/20 rounded-full blur-3xl animate-float-1 opacity-70">
         </div>
         
-        <div className="absolute top-1/4 right-0 w-80 h-80 bg-gradient-to-bl from-yellow-300/15 via-orange-300/20 via-red-300/15 via-pink-300/20 to-purple-300/15 rounded-full blur-3xl animate-pulse opacity-70"
-             style={{
-               animationDuration: '10s',
-               animationDelay: '2s',
-               transform: 'translate(30%, -20%)',
-               animationName: 'float2'
-             }}>
+        <div className="absolute top-1/4 right-0 w-80 h-80 bg-gradient-to-bl from-yellow-300/15 via-orange-300/20 via-red-300/15 via-pink-300/20 to-purple-300/15 rounded-full blur-3xl animate-float-2 opacity-70">
         </div>
         
-        <div className="absolute bottom-0 left-1/3 w-72 h-72 bg-gradient-to-tr from-cyan-300/20 via-blue-300/15 via-indigo-300/20 via-purple-300/15 to-pink-300/20 rounded-full blur-3xl animate-pulse opacity-70"
-             style={{
-               animationDuration: '12s',
-               animationDelay: '4s',
-               transform: 'translate(-40%, 20%)',
-               animationName: 'float3'
-             }}>
+        <div className="absolute bottom-0 left-1/3 w-72 h-72 bg-gradient-to-tr from-cyan-300/20 via-blue-300/15 via-indigo-300/20 via-purple-300/15 to-pink-300/20 rounded-full blur-3xl animate-float-3 opacity-70">
         </div>
         
-        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-gradient-to-r from-green-300/15 via-yellow-300/20 via-orange-300/15 to-red-300/20 rounded-full blur-3xl animate-pulse opacity-70"
-             style={{
-               animationDuration: '15s',
-               animationDelay: '1s',
-               transform: 'translate(-50%, -50%)',
-               animationName: 'float4'
-             }}>
+        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-gradient-to-r from-green-300/15 via-yellow-300/20 via-orange-300/15 to-red-300/20 rounded-full blur-3xl animate-float-4 opacity-70">
         </div>
         
-        <div className="absolute bottom-1/4 right-1/4 w-88 h-88 bg-gradient-to-tl from-indigo-300/20 via-blue-300/15 via-cyan-300/20 via-teal-300/15 to-emerald-300/20 rounded-full blur-3xl animate-pulse opacity-70"
-             style={{
-               animationDuration: '9s',
-               animationDelay: '3s',
-               animationName: 'float5'
-             }}>
+        <div className="absolute bottom-1/4 right-1/4 w-88 h-88 bg-gradient-to-tl from-indigo-300/20 via-blue-300/15 via-cyan-300/20 via-teal-300/15 to-emerald-300/20 rounded-full blur-3xl animate-float-5 opacity-70">
         </div>
-        
-        {/* Additional CSS for fluid movement */}
-        <style jsx>{`
-          @keyframes float1 {
-            0%, 100% { transform: translate(-20%, -10%) scale(1) rotate(0deg); }
-            25% { transform: translate(-10%, -20%) scale(1.1) rotate(90deg); }
-            50% { transform: translate(-30%, -5%) scale(0.9) rotate(180deg); }
-            75% { transform: translate(-15%, -25%) scale(1.05) rotate(270deg); }
-          }
-          
-          @keyframes float2 {
-            0%, 100% { transform: translate(30%, -20%) scale(1) rotate(0deg); }
-            25% { transform: translate(20%, -10%) scale(1.15) rotate(-90deg); }
-            50% { transform: translate(40%, -30%) scale(0.85) rotate(-180deg); }
-            75% { transform: translate(25%, -15%) scale(1.1) rotate(-270deg); }
-          }
-          
-          @keyframes float3 {
-            0%, 100% { transform: translate(-40%, 20%) scale(1) rotate(0deg); }
-            33% { transform: translate(-30%, 30%) scale(1.2) rotate(120deg); }
-            66% { transform: translate(-50%, 10%) scale(0.8) rotate(240deg); }
-          }
-          
-          @keyframes float4 {
-            0%, 100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
-            20% { transform: translate(-45%, -45%) scale(1.1) rotate(72deg); }
-            40% { transform: translate(-55%, -55%) scale(0.9) rotate(144deg); }
-            60% { transform: translate(-50%, -40%) scale(1.05) rotate(216deg); }
-            80% { transform: translate(-40%, -50%) scale(0.95) rotate(288deg); }
-          }
-          
-          @keyframes float5 {
-            0%, 100% { transform: translate(0%, 0%) scale(1) rotate(0deg); }
-            30% { transform: translate(10%, -10%) scale(1.1) rotate(108deg); }
-            70% { transform: translate(-10%, 10%) scale(0.9) rotate(252deg); }
-          }
-        `}</style>
 
         <div className="max-w-7xl mx-auto text-center relative z-10 -mt-5">
           <div className="max-w-4xl mx-auto">

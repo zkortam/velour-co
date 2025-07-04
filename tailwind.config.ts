@@ -56,6 +56,44 @@ export default {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)'
       },
+      animation: {
+        'float-1': 'float1 8s ease-in-out infinite',
+        'float-2': 'float2 10s ease-in-out infinite 2s',
+        'float-3': 'float3 12s ease-in-out infinite 4s',
+        'float-4': 'float4 15s ease-in-out infinite 1s',
+        'float-5': 'float5 9s ease-in-out infinite 3s',
+      },
+      keyframes: {
+        float1: {
+          '0%, 100%': { transform: 'translate(-20%, -10%) scale(1) rotate(0deg)' },
+          '25%': { transform: 'translate(-10%, -20%) scale(1.1) rotate(90deg)' },
+          '50%': { transform: 'translate(-30%, -5%) scale(0.9) rotate(180deg)' },
+          '75%': { transform: 'translate(-15%, -25%) scale(1.05) rotate(270deg)' },
+        },
+        float2: {
+          '0%, 100%': { transform: 'translate(30%, -20%) scale(1) rotate(0deg)' },
+          '25%': { transform: 'translate(20%, -10%) scale(1.15) rotate(-90deg)' },
+          '50%': { transform: 'translate(40%, -30%) scale(0.85) rotate(-180deg)' },
+          '75%': { transform: 'translate(25%, -15%) scale(1.1) rotate(-270deg)' },
+        },
+        float3: {
+          '0%, 100%': { transform: 'translate(-40%, 20%) scale(1) rotate(0deg)' },
+          '33%': { transform: 'translate(-30%, 30%) scale(1.2) rotate(120deg)' },
+          '66%': { transform: 'translate(-50%, 10%) scale(0.8) rotate(240deg)' },
+        },
+        float4: {
+          '0%, 100%': { transform: 'translate(-50%, -50%) scale(1) rotate(0deg)' },
+          '20%': { transform: 'translate(-45%, -45%) scale(1.1) rotate(72deg)' },
+          '40%': { transform: 'translate(-55%, -55%) scale(0.9) rotate(144deg)' },
+          '60%': { transform: 'translate(-50%, -40%) scale(1.05) rotate(216deg)' },
+          '80%': { transform: 'translate(-40%, -50%) scale(0.95) rotate(288deg)' },
+        },
+        float5: {
+          '0%, 100%': { transform: 'translate(0%, 0%) scale(1) rotate(0deg)' },
+          '30%': { transform: 'translate(10%, -10%) scale(1.1) rotate(108deg)' },
+          '70%': { transform: 'translate(-10%, 10%) scale(0.9) rotate(252deg)' },
+        },
+      },
       container: {
       center: true,
       padding: {
