@@ -2,11 +2,22 @@
 
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 
 export default function Navigation({ currentPage }: { currentPage: string }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [hasScrolled, setHasScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY
+      setHasScrolled(scrollTop > 50)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -23,14 +34,18 @@ export default function Navigation({ currentPage }: { currentPage: string }) {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <Link href="/" onClick={closeMenu}>
-              <div className="flex items-center hover:scale-105 transition-transform duration-200 cursor-pointer">
-                <Image 
-                  src="/velourlogo.svg" 
-                  alt="Velour & Co. Logo" 
-                  width={120} 
-                  height={40} 
-                  className="h-8 w-auto"
-                />
+              <div className="flex items-center hover:scale-105 transition-all duration-300 cursor-pointer">
+                {hasScrolled ? (
+                  <Image 
+                    src="/velourlogo.svg" 
+                    alt="Velour & Co. Logo" 
+                    width={120} 
+                    height={40} 
+                    className="h-8 w-auto"
+                  />
+                ) : (
+                  <h1 className="text-xl font-bold text-black">Velour & Co.</h1>
+                )}
               </div>
             </Link>
           </div>
