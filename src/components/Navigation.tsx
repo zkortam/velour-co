@@ -10,12 +10,20 @@ export default function Navigation({ currentPage }: { currentPage: string }) {
   const [hasScrolled, setHasScrolled] = useState(false)
 
   useEffect(() => {
+    let ticking = false
+
     const handleScroll = () => {
-      const scrollTop = window.scrollY
-      setHasScrolled(scrollTop > 50)
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrollTop = window.scrollY
+          setHasScrolled(scrollTop > 30)
+          ticking = false
+        })
+        ticking = true
+      }
     }
 
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -34,8 +42,11 @@ export default function Navigation({ currentPage }: { currentPage: string }) {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <Link href="/" onClick={closeMenu}>
-              <div className="flex items-center hover:scale-105 transition-all duration-300 cursor-pointer">
-                {hasScrolled ? (
+              <div className="flex items-center hover:scale-105 transition-all duration-500 cursor-pointer relative">
+                <div className={`transition-all duration-700 ease-in-out ${hasScrolled ? 'opacity-0 scale-95 -translate-y-1' : 'opacity-100 scale-100 translate-y-0'}`}>
+                  <h1 className="text-xl font-bold text-black">Velour & Co.</h1>
+                </div>
+                <div className={`absolute inset-0 flex items-center transition-all duration-700 ease-in-out ${hasScrolled ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-1'}`}>
                   <Image 
                     src="/velourlogo.svg" 
                     alt="Velour & Co. Logo" 
@@ -43,9 +54,7 @@ export default function Navigation({ currentPage }: { currentPage: string }) {
                     height={40} 
                     className="h-8 w-auto"
                   />
-                ) : (
-                  <h1 className="text-xl font-bold text-black">Velour & Co.</h1>
-                )}
+                </div>
               </div>
             </Link>
           </div>
