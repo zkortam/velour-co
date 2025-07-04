@@ -12,13 +12,13 @@ export default function Home() {
       <Navigation currentPage="home" />
 
       {/* Hero Section */}
-      <section className="pt-20 sm:pt-24 pb-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         {/* Gradient Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 opacity-60" />
         <div className="absolute top-20 left-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-br from-blue-200/20 to-purple-200/20 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-20 right-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-br from-purple-200/20 to-pink-200/20 rounded-full blur-3xl animate-pulse delay-1000" />
 
-        <div className="max-w-7xl mx-auto text-center relative z-10">
+        <div className="max-w-7xl mx-auto text-center relative z-10 py-20">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-black mb-4 sm:mb-6 leading-tight animate-in fade-in slide-in-from-bottom-4 duration-1000">
               Scale your business
