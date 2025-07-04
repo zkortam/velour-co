@@ -13,13 +13,14 @@ export default function Contact() {
     name: '',
     email: '',
     company: '',
-    phone: ''
+    phone: '',
+    message: ''
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [errors, setErrors] = useState<{[key: string]: string}>({})
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
     // Clear error when user starts typing
@@ -63,14 +64,28 @@ export default function Contact() {
     setIsSubmitting(true)
     
     try {
-      // Simulate API call - replace with actual endpoint
-      await new Promise(resolve => setTimeout(resolve, 2000))
+      // Send data to Formspark
+      const response = await fetch('https://submit-form.com/wrWBRQIGH', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: `Company: ${formData.company}\nPhone: ${formData.phone}\n\nConsultation Request: I'm interested in a free 30-minute strategy session to discuss how Velour & Co. can help accelerate my business growth.${formData.message ? `\n\nAdditional Information: ${formData.message}` : ''}`
+        })
+      })
       
-      // Here you would typically send the data to your backend
-      console.log('Consultation request submitted:', formData)
+      if (!response.ok) {
+        throw new Error('Form submission failed')
+      }
+      
+      console.log('Consultation request submitted to Formspark:', formData)
       
       setIsSubmitted(true)
-      setFormData({ name: '', email: '', company: '', phone: '' })
+      setFormData({ name: '', email: '', company: '', phone: '', message: '' })
     } catch (error) {
       console.error('Error submitting form:', error)
       setErrors({ submit: 'Something went wrong. Please try again.' })
@@ -181,14 +196,22 @@ export default function Contact() {
               className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-[calc(1rem+4px)] px-6 py-[calc(1rem+12px)] text-lg transition-all duration-200 focus:scale-105 focus:bg-white shadow-none"
             />
             {errors.company && <p className="text-sm text-red-500">{errors.company}</p>}
-            <Input
-              placeholder="Phone Number"
-              name="phone"
-              value={formData.phone}
-              onChange={handleInputChange}
-              className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-[calc(1rem+4px)] px-6 py-[calc(1rem+12px)] text-lg transition-all duration-200 focus:scale-105 focus:bg-white shadow-none"
-            />
-            {errors.phone && <p className="text-sm text-red-500">{errors.phone}</p>}
+                         <Input
+               placeholder="Phone Number"
+               name="phone"
+               value={formData.phone}
+               onChange={handleInputChange}
+               className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-[calc(1rem+4px)] px-6 py-[calc(1rem+12px)] text-lg transition-all duration-200 focus:scale-105 focus:bg-white shadow-none"
+             />
+             {errors.phone && <p className="text-sm text-red-500">{errors.phone}</p>}
+             <textarea
+               placeholder="Tell us about your business and what you're looking to achieve (optional)"
+               name="message"
+               value={formData.message}
+               onChange={handleInputChange}
+               rows={4}
+               className="w-full bg-white/80 backdrop-blur-sm text-black border-0 rounded-[calc(1rem+4px)] px-6 py-[calc(1rem+12px)] text-lg transition-all duration-200 focus:scale-105 focus:bg-white shadow-none resize-none"
+             />
                          <Button type="submit" size="lg" className="w-full bg-blue-900 hover:bg-blue-950 text-white hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl group text-lg py-[calc(1rem+10px)] rounded-[calc(1rem+4px)] border-0" disabled={isSubmitting}>
                {isSubmitting ? 'Booking...' : 'Book Free Consultation'}
                <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none ml-2">
