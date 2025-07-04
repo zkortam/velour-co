@@ -350,90 +350,262 @@ export default function Services() {
       </section>
 
       {/* Service Packages */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-white to-blue-50/30 relative overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-200/20 to-purple-200/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-br from-purple-200/20 to-pink-200/20 rounded-full blur-3xl animate-pulse delay-1000" />
+        
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-black mb-6">Service Packages</h2>
+            <h2 className="text-4xl font-bold text-black mb-6">Investment Packages</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Choose the package that best fits your needs, or let us create a custom solution
-              tailored specifically for your business goals.
+              Transparent pricing designed to scale with your business growth. Each package includes everything you need to succeed at that stage.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 p-8 text-center">
-              <CardHeader className="p-0 mb-6">
-                <CardTitle className="text-2xl text-black mb-2">Starter</CardTitle>
-                <CardDescription className="text-gray-600">Perfect for new businesses ready to establish their presence</CardDescription>
+          <div className="grid lg:grid-cols-3 gap-8 mb-16">
+            {/* Starter Package */}
+            <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 relative overflow-hidden bg-gradient-to-br from-white to-blue-50/50 group">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <CardHeader className="p-8 pb-6 relative z-10">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+                    <span className="text-white font-bold text-lg">S</span>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-2xl font-bold text-black">$1,250</div>
+                    <div className="text-sm text-gray-500">per month</div>
+                  </div>
+                </div>
+                <CardTitle className="text-2xl text-black mb-2 group-hover:text-blue-600 transition-colors duration-300">Starter</CardTitle>
+                <CardDescription className="text-gray-600 group-hover:text-gray-700 leading-relaxed">
+                  Perfect for new businesses ready to establish their brand presence and digital foundation.
+                </CardDescription>
               </CardHeader>
-              <CardContent className="p-0">
-                <div className="space-y-4">
-                  <ul className="space-y-2 text-gray-600 text-left">
-                    <li>• Brand identity development</li>
-                    <li>• Professional website</li>
-                    <li>• Basic SEO setup</li>
-                    <li>• Social media setup</li>
-                    <li>• Content strategy</li>
-                  </ul>
+              <CardContent className="p-8 pt-0">
+                <div className="space-y-6">
+                  <div className="bg-blue-50/50 p-4 rounded-xl">
+                    <div className="text-sm font-semibold text-blue-600 mb-2">Setup Investment</div>
+                    <div className="text-lg font-bold text-black">$750</div>
+                    <div className="text-sm text-gray-600">One-time onboarding</div>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold text-black mb-3">What's Included:</h4>
+                    <ul className="space-y-2 text-gray-600">
+                      <li className="flex items-start">
+                        <span className="text-blue-500 mr-2 font-bold">✓</span>
+                        <span>Brand identity development & visual system</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-blue-500 mr-2 font-bold">✓</span>
+                        <span>Professional website (up to 3 pages)</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-blue-500 mr-2 font-bold">✓</span>
+                        <span>Foundational SEO setup & optimization</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-blue-500 mr-2 font-bold">✓</span>
+                        <span>Social media profile setup & strategy</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-blue-500 mr-2 font-bold">✓</span>
+                        <span>Content strategy roadmap & guidelines</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-gray-50 p-4 rounded-xl">
+                    <div className="text-sm font-semibold text-gray-700 mb-1">Minimum Commitment</div>
+                    <div className="text-sm text-gray-600">3 months (10% discount at 6-month commit)</div>
+                  </div>
+
                   <Link href="/contact">
-                    <Button className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700">
-                      Get Started
+                    <Button className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl text-lg py-3 rounded-xl group">
+                      Start Your Journey
+                      <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>
                     </Button>
                   </Link>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 p-8 text-center bg-gradient-to-br from-blue-50 to-purple-50 relative">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-bold">
+            {/* Growth Package */}
+            <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 relative overflow-hidden bg-gradient-to-br from-white to-purple-50/50 group">
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-purple-500 to-pink-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
                 Most Popular
               </div>
-              <CardHeader className="p-0 mb-6 mt-4">
-                <CardTitle className="text-2xl text-black mb-2">Growth</CardTitle>
-                <CardDescription className="text-gray-600">Comprehensive marketing for scaling businesses</CardDescription>
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <CardHeader className="p-8 pb-6 relative z-10 pt-12">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center">
+                    <span className="text-white font-bold text-lg">G</span>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-2xl font-bold text-black">$3,250</div>
+                    <div className="text-sm text-gray-500">per month</div>
+                  </div>
+                </div>
+                <CardTitle className="text-2xl text-black mb-2 group-hover:text-purple-600 transition-colors duration-300">Growth</CardTitle>
+                <CardDescription className="text-gray-600 group-hover:text-gray-700 leading-relaxed">
+                  Comprehensive marketing suite for businesses ready to scale and capture market share.
+                </CardDescription>
               </CardHeader>
-              <CardContent className="p-0">
-                <div className="space-y-4">
-                  <ul className="space-y-2 text-gray-600 text-left">
-                    <li>• Everything in Starter</li>
-                    <li>• Advanced SEO & content marketing</li>
-                    <li>• Social media management</li>
-                    <li>• Email marketing campaigns</li>
-                    <li>• Performance analytics</li>
-                    <li>• Monthly strategy sessions</li>
-                  </ul>
+              <CardContent className="p-8 pt-0">
+                <div className="space-y-6">
+                  <div className="bg-purple-50/50 p-4 rounded-xl">
+                    <div className="text-sm font-semibold text-purple-600 mb-2">Setup Investment</div>
+                    <div className="text-lg font-bold text-black">$1,000</div>
+                    <div className="text-sm text-gray-600">One-time onboarding</div>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold text-black mb-3">Everything in Starter, plus:</h4>
+                    <ul className="space-y-2 text-gray-600">
+                      <li className="flex items-start">
+                        <span className="text-purple-500 mr-2 font-bold">✓</span>
+                        <span>Advanced SEO & content marketing (4 posts/month)</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-purple-500 mr-2 font-bold">✓</span>
+                        <span>Full social media management (12 posts/month)</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-purple-500 mr-2 font-bold">✓</span>
+                        <span>Monthly email marketing campaigns</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-purple-500 mr-2 font-bold">✓</span>
+                        <span>Performance analytics dashboard & reporting</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-purple-500 mr-2 font-bold">✓</span>
+                        <span>Monthly strategy calls & optimization</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-gray-50 p-4 rounded-xl">
+                    <div className="text-sm font-semibold text-gray-700 mb-1">Minimum Commitment</div>
+                    <div className="text-sm text-gray-600">6 months (10% discount available)</div>
+                  </div>
+
                   <Link href="/contact">
-                    <Button className="w-full bg-gradient-to-r from-purple-500 to-pink-600 text-white hover:from-purple-600 hover:to-pink-700">
+                    <Button className="w-full bg-gradient-to-r from-purple-500 to-pink-600 text-white hover:from-purple-600 hover:to-pink-700 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl text-lg py-3 rounded-xl group">
                       Scale Your Business
+                      <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>
                     </Button>
                   </Link>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 p-8 text-center">
-              <CardHeader className="p-0 mb-6">
-                <CardTitle className="text-2xl text-black mb-2">Enterprise</CardTitle>
-                <CardDescription className="text-gray-600">Custom solutions for established businesses</CardDescription>
+            {/* Enterprise Package */}
+            <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 relative overflow-hidden bg-gradient-to-br from-white to-gray-50/50 group">
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-500/5 to-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <CardHeader className="p-8 pb-6 relative z-10">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-gray-700 to-black rounded-xl flex items-center justify-center">
+                    <span className="text-white font-bold text-lg">E</span>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-2xl font-bold text-black">$6,500+</div>
+                    <div className="text-sm text-gray-500">per month</div>
+                  </div>
+                </div>
+                <CardTitle className="text-2xl text-black mb-2 group-hover:text-gray-700 transition-colors duration-300">Enterprise</CardTitle>
+                <CardDescription className="text-gray-600 group-hover:text-gray-700 leading-relaxed">
+                  Fully customized marketing solutions for established businesses seeking market leadership.
+                </CardDescription>
               </CardHeader>
-              <CardContent className="p-0">
-                <div className="space-y-4">
-                  <ul className="space-y-2 text-gray-600 text-left">
-                    <li>• Fully customized strategy</li>
-                    <li>• Dedicated account team</li>
-                    <li>• Advanced analytics & reporting</li>
-                    <li>• Multi-channel campaigns</li>
-                    <li>• Priority support</li>
-                    <li>• Quarterly business reviews</li>
-                  </ul>
+              <CardContent className="p-8 pt-0">
+                <div className="space-y-6">
+                  <div className="bg-gray-50/50 p-4 rounded-xl">
+                    <div className="text-sm font-semibold text-gray-700 mb-2">Setup Investment</div>
+                    <div className="text-lg font-bold text-black">$1,500</div>
+                    <div className="text-sm text-gray-600">Custom scope planning</div>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold text-black mb-3">Premium Features:</h4>
+                    <ul className="space-y-2 text-gray-600">
+                      <li className="flex items-start">
+                        <span className="text-gray-600 mr-2 font-bold">✓</span>
+                        <span>Fully customized marketing strategy</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-gray-600 mr-2 font-bold">✓</span>
+                        <span>End-to-end website development & hosting</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-gray-600 mr-2 font-bold">✓</span>
+                        <span>Dedicated account management team</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-gray-600 mr-2 font-bold">✓</span>
+                        <span>Advanced analytics & business intelligence</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-gray-600 mr-2 font-bold">✓</span>
+                        <span>Multi-channel campaigns (paid + organic)</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-gray-600 mr-2 font-bold">✓</span>
+                        <span>Priority support & quarterly business reviews</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-gray-50 p-4 rounded-xl">
+                    <div className="text-sm font-semibold text-gray-700 mb-1">Minimum Commitment</div>
+                    <div className="text-sm text-gray-600">6-12 months (pricing scales with scope)</div>
+                  </div>
+
                   <Link href="/contact">
-                    <Button className="w-full bg-gradient-to-r from-gray-700 to-black text-white hover:from-gray-800 hover:to-gray-900">
+                    <Button className="w-full bg-gradient-to-r from-gray-700 to-black text-white hover:from-gray-800 hover:to-gray-900 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl text-lg py-3 rounded-xl group">
                       Custom Solution
+                      <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>
                     </Button>
                   </Link>
                 </div>
               </CardContent>
             </Card>
+          </div>
+
+          {/* Value Proposition */}
+          <div className="bg-gradient-to-r from-blue-50/50 to-purple-50/50 p-8 rounded-3xl border border-blue-100/50">
+            <div className="text-center">
+              <h3 className="text-2xl font-bold text-black mb-4">Why Choose Velour & Co. Packages?</h3>
+              <div className="grid md:grid-cols-3 gap-8 text-center">
+                <div>
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+                  <h4 className="font-semibold text-black mb-2">Fast Implementation</h4>
+                  <p className="text-gray-600 text-sm">Get up and running in 2-3 weeks with our streamlined onboarding process.</p>
+                </div>
+                <div>
+                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <h4 className="font-semibold text-black mb-2">Proven Results</h4>
+                  <p className="text-gray-600 text-sm">Our systematic approach delivers measurable ROI and sustainable growth.</p>
+                </div>
+                <div>
+                  <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
+                  <h4 className="font-semibold text-black mb-2">Dedicated Support</h4>
+                  <p className="text-gray-600 text-sm">Direct access to your account team with transparent communication.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
