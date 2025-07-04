@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import Link from "next/link"
 import Navigation from "@/components/Navigation"
-import { useState } from "react"
+import { useState, useRef } from "react"
 
 const FORMSPARK_ACTION_URL = "https://submit-form.com/wrWBRQIGH"
 
@@ -20,6 +20,7 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [errors, setErrors] = useState<{[key: string]: string}>({})
+  const hiddenFormRef = useRef<HTMLFormElement>(null)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
@@ -67,37 +68,34 @@ export default function Contact() {
     try {
       console.log('Submitting to Formspark:', formData)
       
-      // Create form data using URLSearchParams to avoid CORS preflight
-      const formDataToSend = new URLSearchParams()
-      formDataToSend.append('name', formData.name)
-      formDataToSend.append('email', formData.email)
-      formDataToSend.append('company', formData.company)
-      formDataToSend.append('phone', formData.phone)
-      formDataToSend.append('message', `New consultation request from ${formData.name} at ${formData.company}. Phone: ${formData.phone}. Email: ${formData.email}`)
-
-      const response = await fetch(FORMSPARK_ACTION_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: formDataToSend.toString(),
-      })
-
-      console.log('Formspark response status:', response.status)
-
-      if (!response.ok) {
-        const errorText = await response.text()
-        console.error('Formspark error response:', errorText)
-        throw new Error(`Formspark error: ${response.status}`)
+      // Use traditional form submission to bypass CORS
+      if (hiddenFormRef.current) {
+        // Set form values
+        const nameInput = hiddenFormRef.current.querySelector('input[name="name"]') as HTMLInputElement
+        const emailInput = hiddenFormRef.current.querySelector('input[name="email"]') as HTMLInputElement
+        const companyInput = hiddenFormRef.current.querySelector('input[name="company"]') as HTMLInputElement
+        const phoneInput = hiddenFormRef.current.querySelector('input[name="phone"]') as HTMLInputElement
+        const messageInput = hiddenFormRef.current.querySelector('input[name="message"]') as HTMLInputElement
+        
+        if (nameInput) nameInput.value = formData.name
+        if (emailInput) emailInput.value = formData.email
+        if (companyInput) companyInput.value = formData.company
+        if (phoneInput) phoneInput.value = formData.phone
+        if (messageInput) messageInput.value = `New consultation request from ${formData.name} at ${formData.company}. Phone: ${formData.phone}. Email: ${formData.email}`
+        
+        // Submit the hidden form
+        hiddenFormRef.current.submit()
+        
+        // Show success immediately since we can't catch the response
+        setTimeout(() => {
+          setIsSubmitted(true)
+          setFormData({ name: '', email: '', company: '', phone: '' })
+          setIsSubmitting(false)
+        }, 1000)
       }
-
-      console.log('Form submitted successfully to Formspark')
-      setIsSubmitted(true)
-      setFormData({ name: '', email: '', company: '', phone: '' })
     } catch (error) {
       console.error('Error submitting form:', error)
       setErrors({ submit: 'Something went wrong. Please try again.' })
-    } finally {
       setIsSubmitting(false)
     }
   }
@@ -225,6 +223,26 @@ export default function Contact() {
             No commitments. Free 30-minute strategy session.
           </p>
         </div>
+
+        {/* Hidden iframe and form for traditional submission to bypass CORS */}
+        <iframe 
+          name="hidden-form-iframe" 
+          style={{ display: 'none' }}
+          title="Hidden form submission"
+        />
+        <form 
+          ref={hiddenFormRef}
+          action={FORMSPARK_ACTION_URL}
+          method="POST"
+          style={{ display: 'none' }}
+          target="hidden-form-iframe"
+        >
+          <input type="text" name="name" />
+          <input type="email" name="email" />
+          <input type="text" name="company" />
+          <input type="tel" name="phone" />
+          <input type="text" name="message" />
+        </form>
       </section>
 
       {/* Contact Info */}
