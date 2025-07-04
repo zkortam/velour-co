@@ -6,9 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import Link from "next/link"
 import Navigation from "@/components/Navigation"
-import { useState, useRef } from "react"
-
-const FORMSPARK_ACTION_URL = "https://submit-form.com/wrWBRQIGH"
+import { useState } from "react"
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -20,7 +18,6 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [errors, setErrors] = useState<{[key: string]: string}>({})
-  const hiddenFormRef = useRef<HTMLFormElement>(null)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
@@ -66,61 +63,41 @@ export default function Contact() {
     setIsSubmitting(true)
     
     try {
-      console.log('Submitting to Formspark:', formData)
-      console.log('Form ID being used:', FORMSPARK_ACTION_URL)
+      console.log('Submitting to Formspree:', formData)
       
-      // Use traditional form submission to bypass CORS
-      if (hiddenFormRef.current) {
-        // Set form values
-        const nameInput = hiddenFormRef.current.querySelector('input[name="name"]') as HTMLInputElement
-        const emailInput = hiddenFormRef.current.querySelector('input[name="email"]') as HTMLInputElement
-        const companyInput = hiddenFormRef.current.querySelector('input[name="company"]') as HTMLInputElement
-        const phoneInput = hiddenFormRef.current.querySelector('input[name="phone"]') as HTMLInputElement
-        const messageInput = hiddenFormRef.current.querySelector('input[name="message"]') as HTMLInputElement
-        
-        if (nameInput) nameInput.value = formData.name
-        if (emailInput) emailInput.value = formData.email
-        if (companyInput) companyInput.value = formData.company
-        if (phoneInput) phoneInput.value = formData.phone
-        if (messageInput) messageInput.value = `New consultation request from ${formData.name} at ${formData.company}. Phone: ${formData.phone}. Email: ${formData.email}`
-        
-        console.log('Form data being submitted:')
-        console.log('- Name:', nameInput?.value)
-        console.log('- Email:', emailInput?.value)
-        console.log('- Company:', companyInput?.value)
-        console.log('- Phone:', phoneInput?.value)
-        console.log('- Message:', messageInput?.value)
-        
-        // Add event listener to iframe to detect submission completion
-        const iframe = document.querySelector('iframe[name="hidden-form-iframe"]') as HTMLIFrameElement
-        if (iframe) {
-          iframe.onload = () => {
-            console.log('Form submission completed - iframe loaded')
-            setTimeout(() => {
-              setIsSubmitted(true)
-              setFormData({ name: '', email: '', company: '', phone: '' })
-              setIsSubmitting(false)
-            }, 500)
-          }
-        }
-        
-        // Submit the hidden form
-        console.log('Submitting hidden form to:', hiddenFormRef.current.action)
-        hiddenFormRef.current.submit()
-        
-        // Fallback timeout in case iframe doesn't load
-        setTimeout(() => {
-          if (isSubmitting) {
-            console.log('Fallback timeout - assuming submission succeeded')
-            setIsSubmitted(true)
-            setFormData({ name: '', email: '', company: '', phone: '' })
-            setIsSubmitting(false)
-          }
-        }, 3000)
+      // Create the message for Formspree
+      const message = `New consultation request from ${formData.name} at ${formData.company}. Phone: ${formData.phone}. Email: ${formData.email}`
+      
+      const response = await fetch('https://formspree.io/f/mjkrzlno', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          phone: formData.phone,
+          message: message
+        })
+      })
+      
+      console.log('Response status:', response.status)
+      console.log('Response:', response)
+      
+      if (response.ok) {
+        console.log('Form submitted successfully!')
+        setIsSubmitted(true)
+        setFormData({ name: '', email: '', company: '', phone: '' })
+      } else {
+        const errorData = await response.json()
+        console.error('Form submission failed:', errorData)
+        setErrors({ submit: 'Something went wrong. Please try again.' })
       }
     } catch (error) {
       console.error('Error submitting form:', error)
-      setErrors({ submit: 'Something went wrong. Please try again. Check the console for details.' })
+      setErrors({ submit: 'Network error. Please check your connection and try again.' })
+    } finally {
       setIsSubmitting(false)
     }
   }
@@ -235,39 +212,19 @@ export default function Contact() {
               className="bg-white/80 backdrop-blur-sm text-black border-0 rounded-[calc(1rem+4px)] px-6 py-[calc(1rem+12px)] text-lg transition-all duration-200 focus:scale-105 focus:bg-white shadow-none"
             />
             {errors.phone && <p className="text-sm text-red-500">{errors.phone}</p>}
-                         <Button type="submit" size="lg" className="w-full bg-blue-900 hover:bg-blue-950 text-white hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl group text-lg py-[calc(1rem+10px)] rounded-[calc(1rem+4px)] border-0" disabled={isSubmitting}>
-               {isSubmitting ? 'Booking...' : 'Book Free Consultation'}
-               <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none ml-2">
-                 →
-               </span>
-             </Button>
-             {errors.submit && <p className="text-sm text-red-500">{errors.submit}</p>}
-           </form>
+            <Button type="submit" size="lg" className="w-full bg-blue-900 hover:bg-blue-950 text-white hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl group text-lg py-[calc(1rem+10px)] rounded-[calc(1rem+4px)] border-0" disabled={isSubmitting}>
+              {isSubmitting ? 'Booking...' : 'Book Free Consultation'}
+              <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none ml-2">
+                →
+              </span>
+            </Button>
+            {errors.submit && <p className="text-sm text-red-500">{errors.submit}</p>}
+          </form>
 
           <p className="text-sm text-gray-600 mt-6">
             No commitments. Free 30-minute strategy session.
           </p>
         </div>
-
-        {/* Hidden iframe and form for traditional submission to bypass CORS */}
-        <iframe 
-          name="hidden-form-iframe" 
-          style={{ display: 'none' }}
-          title="Hidden form submission"
-        />
-        <form 
-          ref={hiddenFormRef}
-          action={FORMSPARK_ACTION_URL}
-          method="POST"
-          style={{ display: 'none' }}
-          target="hidden-form-iframe"
-        >
-          <input type="text" name="name" />
-          <input type="email" name="email" />
-          <input type="text" name="company" />
-          <input type="tel" name="phone" />
-          <input type="text" name="message" />
-        </form>
       </section>
 
       {/* Contact Info */}
