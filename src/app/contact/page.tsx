@@ -65,6 +65,8 @@ export default function Contact() {
     setIsSubmitting(true)
     
     try {
+      console.log('Submitting form data:', formData)
+      
       // Submit to our API route (which handles Formspark)
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -79,11 +81,17 @@ export default function Contact() {
         }),
       })
 
-      const result = await response.json()
+      console.log('API response status:', response.status)
+      console.log('API response headers:', response.headers)
 
       if (!response.ok) {
-        throw new Error(result.error || 'Failed to submit form')
+        const errorText = await response.text()
+        console.error('API error response:', errorText)
+        throw new Error(`HTTP ${response.status}: ${errorText}`)
       }
+
+      const result = await response.json()
+      console.log('API success result:', result)
       
       setIsSubmitted(true)
       setFormData({ name: '', email: '', company: '', phone: '' })

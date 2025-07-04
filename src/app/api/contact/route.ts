@@ -1,42 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const FORMSPARK_ACTION_URL = "https://submit-form.com/wrWBRQIGH"
-
 export async function POST(request: NextRequest) {
+  console.log('API route called')
+  
   try {
     const body = await request.json()
+    console.log('Request body:', body)
     
-    // Validate required fields
-    const { name, email, company, phone } = body
-    
-    if (!name || !email || !company || !phone) {
-      return NextResponse.json(
-        { error: 'Missing required fields' },
-        { status: 400 }
-      )
-    }
-
-    // Submit to Formspark
-    const response = await fetch(FORMSPARK_ACTION_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-      },
-      body: JSON.stringify({
-        name,
-        email,
-        company,
-        phone,
-        message: `New consultation request from ${name} at ${company}. Phone: ${phone}. Email: ${email}`
-      }),
+    // For now, just return success to test routing
+    console.log('Form submitted successfully (test mode)')
+    return NextResponse.json({ 
+      success: true, 
+      message: 'Form submitted successfully',
+      data: body 
     })
-
-    if (!response.ok) {
-      throw new Error(`Formspark error: ${response.status}`)
-    }
-
-    return NextResponse.json({ success: true })
+    
   } catch (error) {
     console.error('Contact form error:', error)
     return NextResponse.json(
@@ -44,4 +22,16 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     )
   }
+}
+
+// Add OPTIONS method for CORS preflight
+export async function OPTIONS(request: NextRequest) {
+  return new NextResponse(null, {
+    status: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    },
+  })
 } 
