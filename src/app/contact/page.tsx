@@ -65,34 +65,33 @@ export default function Contact() {
     setIsSubmitting(true)
     
     try {
-      console.log('Submitting form data:', formData)
+      console.log('Submitting to Formspark:', formData)
       
-      // Submit to our API route (which handles Formspark)
-      const response = await fetch('/api/contact', {
+      // Submit directly to Formspark
+      const response = await fetch(FORMSPARK_ACTION_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
         },
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
           company: formData.company,
           phone: formData.phone,
+          message: `New consultation request from ${formData.name} at ${formData.company}. Phone: ${formData.phone}. Email: ${formData.email}`
         }),
       })
 
-      console.log('API response status:', response.status)
-      console.log('API response headers:', response.headers)
+      console.log('Formspark response status:', response.status)
 
       if (!response.ok) {
         const errorText = await response.text()
-        console.error('API error response:', errorText)
-        throw new Error(`HTTP ${response.status}: ${errorText}`)
+        console.error('Formspark error response:', errorText)
+        throw new Error(`Formspark error: ${response.status}`)
       }
 
-      const result = await response.json()
-      console.log('API success result:', result)
-      
+      console.log('Form submitted successfully to Formspark')
       setIsSubmitted(true)
       setFormData({ name: '', email: '', company: '', phone: '' })
     } catch (error) {
