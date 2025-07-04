@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { useState } from "react"
+import Image from "next/image"
 
 export default function Navigation({ currentPage }: { currentPage: string }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -22,7 +23,15 @@ export default function Navigation({ currentPage }: { currentPage: string }) {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <Link href="/" onClick={closeMenu}>
-              <h1 className="text-xl font-bold text-black hover:scale-105 transition-transform duration-200 cursor-pointer">Velour & Co.</h1>
+              <div className="flex items-center hover:scale-105 transition-transform duration-200 cursor-pointer">
+                <Image 
+                  src="/velourlogo.svg" 
+                  alt="Velour & Co. Logo" 
+                  width={120} 
+                  height={40} 
+                  className="h-8 w-auto"
+                />
+              </div>
             </Link>
           </div>
           

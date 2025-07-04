@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import Link from "next/link"
+import Image from "next/image"
 import Navigation from "@/components/Navigation"
 
 export default function Home() {
@@ -477,7 +478,15 @@ export default function Home() {
           <div className="grid md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
               <Link href="/">
-                <h3 className="text-xl font-bold text-black mb-4 hover:scale-105 transition-transform duration-200 cursor-pointer">Velour & Co.</h3>
+                <div className="flex items-center mb-4 hover:scale-105 transition-transform duration-200 cursor-pointer">
+                  <Image 
+                    src="/velourlogo.svg" 
+                    alt="Velour & Co. Logo" 
+                    width={120} 
+                    height={40} 
+                    className="h-8 w-auto"
+                  />
+                </div>
               </Link>
               <p className="text-gray-600 mb-4">
                 Empowering businesses to scale rapidly through strategic marketing solutions.
