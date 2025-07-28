@@ -167,7 +167,52 @@ export default function Contact() {
 
       {/* Hero Section */}
       <section className="pt-20 sm:pt-24 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        {/* Base Gradient Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 opacity-60" />
+        
+        {/* Enhanced Flowing Blue-to-Hot-Pink Gradient Blobs */}
+        <div className="absolute top-12 left-12 w-[800px] h-[800px] bg-gradient-to-br from-blue-300/35 via-indigo-300/30 via-violet-300/35 via-purple-300/30 to-pink-300/35 rounded-full blur-2xl animate-float-1">
+        </div>
+        
+        <div className="absolute top-12 right-12 w-[700px] h-[700px] bg-gradient-to-bl from-indigo-300/30 via-violet-300/35 via-purple-300/30 via-fuchsia-300/35 to-pink-400/30 rounded-full blur-2xl animate-float-2">
+        </div>
+        
+        <div className="absolute bottom-12 left-1/4 w-[600px] h-[600px] bg-gradient-to-tr from-blue-400/35 via-indigo-300/30 via-violet-300/35 via-purple-300/30 to-fuchsia-300/35 rounded-full blur-2xl animate-float-3">
+        </div>
+        
+        <div className="absolute top-1/3 left-1/3 w-[500px] h-[500px] bg-gradient-to-r from-violet-300/30 via-purple-300/35 via-fuchsia-300/30 to-pink-400/35 rounded-full blur-2xl animate-float-4">
+        </div>
+        
+        <div className="absolute bottom-12 right-12 w-[750px] h-[750px] bg-gradient-to-tl from-blue-300/35 via-indigo-400/30 via-violet-300/35 via-purple-400/30 to-pink-300/35 rounded-full blur-2xl animate-float-5">
+        </div>
+
+        {/* New Animated Geometric Shapes */}
+        <div className="absolute top-20 left-1/4 w-32 h-32 border-2 border-blue-300/20 rotate-45 animate-spin-slow"></div>
+        <div className="absolute bottom-32 right-1/4 w-24 h-24 bg-gradient-to-br from-purple-300/20 to-pink-300/20 rounded-full animate-bounce-slow"></div>
+        <div className="absolute top-1/2 left-16 w-16 h-16 border-2 border-violet-300/20 transform rotate-12 animate-pulse"></div>
+        <div className="absolute bottom-1/3 right-16 w-20 h-20 bg-gradient-to-tr from-indigo-300/20 to-blue-300/20 rounded-lg animate-float-6"></div>
+
+        {/* Floating Particles */}
+        <div className="absolute top-1/4 left-1/6 w-2 h-2 bg-blue-400/30 rounded-full animate-float-particle-1"></div>
+        <div className="absolute top-1/3 right-1/5 w-1 h-1 bg-purple-400/40 rounded-full animate-float-particle-2"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-pink-400/35 rounded-full animate-float-particle-3"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-1 h-1 bg-indigo-400/40 rounded-full animate-float-particle-4"></div>
+        <div className="absolute top-2/3 left-1/2 w-1 h-1 bg-violet-400/35 rounded-full animate-float-particle-5"></div>
+        <div className="absolute top-1/2 right-1/3 w-1.5 h-1.5 bg-fuchsia-400/30 rounded-full animate-float-particle-6"></div>
+
+        {/* Animated Grid Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.1) 1px, transparent 0)`,
+            backgroundSize: '50px 50px'
+          }}></div>
+        </div>
+
+        {/* Glowing Orbs */}
+        <div className="absolute top-1/4 left-1/5 w-4 h-4 bg-blue-400/20 rounded-full blur-sm animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/5 w-3 h-3 bg-purple-400/25 rounded-full blur-sm animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-pink-400/20 rounded-full blur-sm animate-pulse delay-2000"></div>
+
         <div className="max-w-7xl mx-auto text-center relative z-10">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black mb-4 sm:mb-6 leading-tight">
             Let's start your
@@ -343,7 +388,7 @@ export default function Contact() {
               <CardHeader className="p-0 mb-6">
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 2.31-3.58 3.99-6.07 4.61-2.49.62-5.08.42-7.56-.52-2.48-.94-4.47-2.83-5.81-5.25-1.34-2.42-1.96-5.18-1.96-8.02 0-2.84.62-5.6 1.96-8.02 1.34-2.42 3.33-4.31 5.81-5.25 2.48-.94 5.07-1.14 7.56-.52 2.49.62 4.76 2.3 6.07 4.61.81 1.15 1.27 2.54 1.35 3.94.03-2.91-.01-5.83.02-8.75zM9.678 17.86c.88 0 1.77-.01 2.65-.05.88-.04 1.75-.14 2.6-.32.85-.18 1.68-.45 2.47-.8.79-.35 1.54-.78 2.24-1.28.7-.5 1.35-1.08 1.93-1.72.58-.64 1.09-1.35 1.52-2.11.43-.76.78-1.57 1.04-2.41.26-.84.43-1.71.51-2.59.08-.88.08-1.77 0-2.65-.08-.88-.25-1.75-.51-2.59-.26-.84-.61-1.65-1.04-2.41-.43-.76-.94-1.47-1.52-2.11-.58-.64-1.23-1.22-1.93-1.72-.7-.5-1.45-.93-2.24-1.28-.79-.35-1.62-.62-2.47-.8-.85-.18-1.72-.28-2.6-.32-.88-.04-1.77-.05-2.65-.05-.88 0-1.77.01-2.65.05-.88.04-1.75.14-2.6.32-.85.18-1.68.45-2.47.8-.79.35-1.54.78-2.24 1.28-.7.5-1.35 1.08-1.93 1.72-.58.64-1.09 1.35-1.52 2.11-.43.76-.78 1.57-1.04 2.41-.26.84-.43 1.71-.51 2.59-.08.88-.08 1.77 0 2.65.08.88.25 1.75.51 2.59.26.84.61 1.65 1.04 2.41.43.76.94 1.47 1.52 2.11.58.64 1.23 1.22 1.93 1.72.7.5 1.45.93 2.24 1.28.79.35 1.62.62 2.47.8.85.18 1.72.28 2.6.32.88.04 1.77.05 2.65.05z"/>
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-.88-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
                   </svg>
                 </div>
                 <CardTitle className="text-xl text-black group-hover:text-blue-600 transition-colors duration-300">TikTok</CardTitle>
@@ -352,11 +397,13 @@ export default function Contact() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="p-0">
-                <p className="text-lg font-semibold text-black mb-2">@velourmarketing</p>
-                <p className="text-gray-600">Follow and grow smarter</p>
-                <Button className="mt-4 bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 text-white border-0 rounded-xl px-6 py-2 transition-all duration-300 hover:scale-105">
-                  Follow and grow smarter →
-                </Button>
+                <p className="text-lg font-semibold text-white mb-2">@velourmarketing</p>
+                <p className="text-gray-400">Follow and grow smarter</p>
+                <a href="https://www.tiktok.com/@velour.marketing" target="_blank" rel="noopener noreferrer">
+                  <Button className="mt-4 bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 text-white border-0 rounded-xl px-6 py-2 transition-all duration-300 hover:scale-105">
+                    Follow and grow smarter →
+                  </Button>
+                </a>
               </CardContent>
             </Card>
           </div>

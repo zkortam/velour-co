@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velour & Co. - Mobile Access</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 1rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+        .qr-code {
+            margin: 2rem 0;
+            padding: 1rem;
+            background: white;
+            border-radius: 0.5rem;
+        }
+        .url {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-family: monospace;
+            margin: 1rem 0;
+        }
+        .instructions {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Velour & Co.</h1>
+        <p>Scan this QR code to access the website on your mobile device</p>
+        
+        <div class="qr-code">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=http://10.0.0.103:3000" alt="QR Code">
+        </div>
+        
+        <div class="url">http://10.0.0.103:3000</div>
+        
+        <div class="instructions">
+            <p><strong>Instructions:</strong></p>
+            <p>1. Make sure your phone is on the same WiFi network as this computer</p>
+            <p>2. Scan the QR code with your phone's camera</p>
+            <p>3. Tap the link that appears</p>
+        </div>
+    </div>
+</body>
+</html> 
