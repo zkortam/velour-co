@@ -144,15 +144,15 @@ export default function Navigation({ currentPage }: { currentPage: string }) {
               className="relative p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-300"
               aria-label="Toggle menu"
             >
-              <div className="w-6 h-6 relative">
-                <span className={`absolute top-1 left-0 w-6 h-0.5 bg-gray-700 transition-all duration-300 ${
-                  isMenuOpen ? 'rotate-45 translate-y-2' : 'rotate-0 translate-y-0'
+              <div className="w-6 h-6 flex flex-col justify-center items-center">
+                <span className={`block w-5 h-0.5 bg-gray-700 transition-all duration-300 ${
+                  isMenuOpen ? 'rotate-45 translate-y-1.5' : '-translate-y-1'
                 }`}></span>
-                <span className={`absolute top-3 left-0 w-6 h-0.5 bg-gray-700 transition-all duration-300 ${
+                <span className={`block w-5 h-0.5 bg-gray-700 transition-all duration-300 ${
                   isMenuOpen ? 'opacity-0' : 'opacity-100'
                 }`}></span>
-                <span className={`absolute top-5 left-0 w-6 h-0.5 bg-gray-700 transition-all duration-300 ${
-                  isMenuOpen ? '-rotate-45 -translate-y-2' : 'rotate-0 translate-y-0'
+                <span className={`block w-5 h-0.5 bg-gray-700 transition-all duration-300 ${
+                  isMenuOpen ? '-rotate-45 -translate-y-1.5' : 'translate-y-1'
                 }`}></span>
               </div>
             </button>
